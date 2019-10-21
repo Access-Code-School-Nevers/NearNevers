@@ -1,31 +1,31 @@
 
-# Creer une application mobile avec "React Native"
+# Créer une application mobile avec "React Native"
 
 Voici le projet d'une application mobile pour la ville de Nevers.
 
 
 ## Installation
 
-Pour installer le projet il faut d'abord installer React Native dans le dossier de votre choix :
+Pour installer le projet il faut installer react Native. Ouvrer une console et placez-vous dans le dossier de votre choix :
 
 ```bash
 npm install -g expo-cli
 ```
-Ensuite donner un nom a votre dossier :
+Ensuite donner un nom à votre dossier :
 ```bash
 expo init AwesomeProject #changer AwesomeProject par le nom que vous voulez
 ```
-Ensuite vous pouvez clonez le projet dans votre dossier React Native :
+Ensuite vous pouvez cloner le projet dans votre dossier react Native :
 ```bash
 git clone https://github.com/Access-Code-School-Nevers/NearNevers.git
 ```
 ### Les packages
 
-pour installer les packages fermer votre serveur avec "ctrl + c" et taper cette commande dans votre dossier react native :
+Pour installer les packages fermer votre serveur avec "ctrl + c" et taper cette commande dans votre dossier react native :
 ```bash
 "pas encore de package d'installer"
 ```
-Taper cette commande pour finalisé l'installation des packages :
+Taper cette commande pour finaliser l'installation des packages :
 ```bash
 npm install
 ```
@@ -41,7 +41,7 @@ foobar.pluralize('goose') # returns 'geese'
 foobar.singularize('phenomena') # returns 'phenomenon'
 ``` -->
 
-## Contributing
+## Contributeur
 ...
 
 ## License

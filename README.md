@@ -22,8 +22,11 @@ git clone https://github.com/Access-Code-School-Nevers/NearNevers.git
 ### Les packages
 
 Pour installer les packages fermer votre serveur avec "ctrl + c" et taper cette commande dans votre dossier react native :
+
+react-native-material-ui
 ```bash
-"pas encore de package d'installer"
+yarn add react-native-material-ui
+#ou npm add react-native-material-ui
 ```
 Taper cette commande pour finaliser l'installation des packages :
 ```bash

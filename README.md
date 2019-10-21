@@ -15,7 +15,7 @@ Ensuite donner un nom à votre dossier :
 ```bash
 expo init AwesomeProject #changer AwesomeProject par le nom que vous voulez
 ```
-Ensuite vous pouvez cloner le projet dans votre dossier react Native :
+Vous pouvez cloner le projet dans votre dossier react Native :
 ```bash
 git clone https://github.com/Access-Code-School-Nevers/NearNevers.git
 ```
@@ -28,11 +28,11 @@ react-native-material-ui
 yarn add react-native-material-ui
 #ou npm add react-native-material-ui
 ```
-Taper cette commande pour finaliser l'installation des packages :
+Pour finaliser l'installation des packages :
 ```bash
 npm install
 ```
-Et pour finir lancer le serveur :
+Et lancer le serveur :
 ```bash
 npm start
 ```

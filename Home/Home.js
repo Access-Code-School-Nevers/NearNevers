@@ -5,7 +5,7 @@ import MenuBurger from '../Components/MenuBurger'
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>test3</Text>
+      <Text>test4</Text>
     </View>
   );
 }

@@ -1,17 +1,23 @@
 
-# Foobar
+# Creer une application mobile avec "React Native"
 
-Foobar is a Python library for dealing with word pluralization.
+Voici le projet d'une application mobile pour la ville de Nevers.
+
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Pour installer le projet il faut d'abord installer React Native :
 
 ```bash
-pip install foobar
+npm install -g expo-cli
 ```
+Ensuite vous pouvez clonez le projet dans votre dossier React Native :
+```bash
+git clone https://github.com/Access-Code-School-Nevers/NearNevers.git
+```
+### Les packages
 
-## Usage
+
 
 ```python
 import foobar

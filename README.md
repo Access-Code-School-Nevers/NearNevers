@@ -6,10 +6,14 @@ Voici le projet d'une application mobile pour la ville de Nevers.
 
 ## Installation
 
-Pour installer le projet il faut d'abord installer React Native :
+Pour installer le projet il faut d'abord installer React Native dans le dossier de votre choix :
 
 ```bash
 npm install -g expo-cli
+```
+Ensuite donner un nom a votre dossier :
+```bash
+expo init AwesomeProject #changer AwesomeProject par le nom que vous voulez
 ```
 Ensuite vous pouvez clonez le projet dans votre dossier React Native :
 ```bash
@@ -21,11 +25,14 @@ pour installer les packages fermer votre serveur avec "ctrl + c" et taper cette 
 ```bash
 "pas encore de package d'installer"
 ```
-Pour terminer taper cette commande :
+Taper cette commande pour finalisé l'installation des packages :
 ```bash
 npm install
 ```
-
+Et pour finir lancer le serveur :
+```bash
+npm start
+```
 <!-- ```python
 import foobar
 

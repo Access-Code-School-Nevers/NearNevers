@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import MenuBurger from '../Components/MenuBurger'
+import MyToolbar from '../Components/myToolbar'
 import { Toolbar } from 'react-native-material-ui';
 
 class Home extends React.Component {
@@ -8,7 +8,7 @@ class Home extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <MenuBurger/>
+          <MyToolbar/>
         </View>
         <View style={styles.body}>
           <Text>Map</Text>

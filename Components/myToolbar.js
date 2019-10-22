@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Toolbar, COLOR } from 'react-native-material-ui';
+import LeftElement from './LeftElement'
 
-class MenuBurger extends Component  {
+class MyToolbar extends React.Component  {
   render() {
     return(
       <View>
         <Toolbar
-          leftElement="menu"
-          centerElement="Searchable"
+          leftElement= "menu"
+          centerElement="NeversNow"
           style={{
             container: { backgroundColor: 'grey' },
             leftElement: { color: 'black' },
@@ -25,4 +26,4 @@ class MenuBurger extends Component  {
     )
   }
 }
-export default MenuBurger
+export default MyToolbar

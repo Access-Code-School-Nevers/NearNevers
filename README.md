@@ -6,33 +6,50 @@ Voici le projet d'une application mobile pour la ville de Nevers.
 
 ## Installation
 
-Pour installer le projet il faut installer react Native. Ouvrer une console et placez-vous dans le dossier de votre choix :
+Pour installer le projet il vous faut le logiciel "Yarn" ensuite il vous faut ouvrir une console et vous placez dans le dossier de votre choix.
 
-```bash
-npm install -g expo-cli
-```
-Ensuite donner un nom à votre dossier :
-```bash
-expo init AwesomeProject #changer AwesomeProject par le nom que vous voulez
-```
-Vous pouvez cloner le projet dans votre dossier react Native :
+1. Commencez par cloner le projet dans le dossier :
 ```bash
 git clone https://github.com/Access-Code-School-Nevers/NearNevers.git
 ```
-### Les packages
-
-Pour installer les packages fermer votre serveur avec "ctrl + c" et taper cette commande dans votre dossier react native :
-
-react-native-material-ui
+2. Ensuite installer react native :
 ```bash
-yarn add react-native-material-ui
-#ou npm add react-native-material-ui
+npm install -g expo-cli
 ```
-Pour finaliser l'installation des packages :
+
+3. Il faut renitialisé les modules git que l'on à cloner pour qu'il soit pris en compte par react :
+```bash
+git submodule init
+```
+```bash
+git submodule update
+```
+4. savegarder les modification avec :
 ```bash
 npm install
 ```
-Et lancer le serveur :
+5. savegarder les modifications avec :
+```bash
+npm start
+```
+
+### Les packages
+
+Pour installer les packages fermer votre serveur avec "ctrl + c" et taper ces commandes dans votre dossier react native :
+
+1. react-native-material-ui
+```bash
+yarn add react-native-material-ui
+```
+2. react-native-vector-icons
+```bash
+npm install --save react-native-vector-icons
+```
+3. Pour finaliser l'installation des packages :
+```bash
+npm install
+```
+###Et lancer le serveur :
 ```bash
 npm start
 ```

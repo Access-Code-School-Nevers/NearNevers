@@ -6,6 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
     <Toolbar
+      style={styles.top_bar}
       leftElement="menu"
       centerElement="Searchable"
       searchable={{
@@ -20,10 +21,10 @@ export default function App() {
       }}
       onRightElementPress={ (label) => { console.log(label) }}
     />
-      <Text>test5</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+
 });

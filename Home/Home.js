@@ -6,8 +6,12 @@ import { Toolbar } from 'react-native-material-ui';
 export default function App() {
   return (
     <View style={styles.container}>
-      <MenuBurger/>
-      <Text>test4</Text>
+      <View style={styles.header}>
+        <MenuBurger/>
+      </View>
+      <View style={styles.body}>
+        <Text>test4</Text>
+      </View>
     </View>
   );
 }
@@ -18,4 +22,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: "100%",
   },
+  header: {
+    paddingTop: 24,
+    backgroundColor: "grey"
+  },
+  body: {
+    backgroundColor: "white"
+  }
 });

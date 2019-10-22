@@ -28,7 +28,7 @@ git submodule update
 ```bash
 npm install
 ```
-5. savegarder les modifications avec :
+5. sauvegarder les modifications avec :
 ```bash
 npm start
 ```
@@ -49,7 +49,7 @@ npm install --save react-native-vector-icons
 ```bash
 npm install
 ```
-###Et lancer le serveur :
+### Et lancer le serveur :
 ```bash
 npm start
 ```

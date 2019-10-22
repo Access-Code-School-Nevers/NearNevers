@@ -9,21 +9,20 @@ class MenuBurger extends Component  {
         <Toolbar
           leftElement="menu"
           centerElement="Searchable"
+          style={{
+            container: { backgroundColor: 'grey' },
+            leftElement: { color: 'black' },
+            titleText: { color: 'white' },
+            rightElement: { color: 'white' },
+          }}
           searchable={{
             autoFocus: true,
             placeholder: 'Search',
           }}
           onRightElementPress={ (label) => { console.log(label) }}
-          style={{
-              container: { backgroundColor: COLOR.orange300 },
-              leftElement: { color: COLOR.orange900 },
-              titleText: { color: 'white' },
-              rightElement: { color: COLOR.orange900 },
-          }}
         />
       </View>
     )
   }
 }
-
 export default MenuBurger

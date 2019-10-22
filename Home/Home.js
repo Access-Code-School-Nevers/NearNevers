@@ -11,7 +11,7 @@ class Home extends React.Component {
           <MenuBurger/>
         </View>
         <View style={styles.body}>
-          <Text>test4</Text>
+          <Text>Map</Text>
         </View>
       </View>
     )

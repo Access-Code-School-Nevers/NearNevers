@@ -3,17 +3,19 @@ import { StyleSheet, Text, View } from 'react-native';
 import MenuBurger from '../Components/MenuBurger'
 import { Toolbar } from 'react-native-material-ui';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <MenuBurger/>
+class Home extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <MenuBurger/>
+        </View>
+        <View style={styles.body}>
+          <Text>test4</Text>
+        </View>
       </View>
-      <View style={styles.body}>
-        <Text>test4</Text>
-      </View>
-    </View>
-  );
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -24,9 +26,11 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingTop: 24,
-    backgroundColor: "grey"
+    backgroundColor: "white"
   },
   body: {
     backgroundColor: "white"
   }
 });
+
+export default Home

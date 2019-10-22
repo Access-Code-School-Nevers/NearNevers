@@ -1,30 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Toolbar } from 'react-native-material-ui';
+import { Toolbar, COLOR } from 'react-native-material-ui';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-    <Toolbar
-      style={styles.top_bar}
-      leftElement="menu"
-      centerElement="Searchable"
-      searchable={{
-        autoFocus: true,
-        placeholder: 'Search',
-      }}
-      rightElement={{
-          menu: {
-              icon: "more-vert",
-              labels: ["item 1", "item 2"]
-          }
-      }}
-      onRightElementPress={ (label) => { console.log(label) }}
-    />
-    </View>
-  );
+class MenuBurger extends Component  {
+  render() {
+    return(
+      <View>
+        <Toolbar
+          leftElement="menu"
+          centerElement="Searchable"
+          searchable={{
+            autoFocus: true,
+            placeholder: 'Search',
+          }}
+          onRightElementPress={ (label) => { console.log(label) }}
+          style={{
+              container: { backgroundColor: COLOR.orange300 },
+              leftElement: { color: COLOR.orange900 },
+              titleText: { color: 'white' },
+              rightElement: { color: COLOR.orange900 },
+          }}
+        />
+      </View>
+    )
+  }
 }
 
-const styles = StyleSheet.create({
-
-});
+export default MenuBurger

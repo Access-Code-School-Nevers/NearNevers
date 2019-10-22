@@ -20,16 +20,10 @@ export default function App() {
       }}
       onRightElementPress={ (label) => { console.log(label) }}
     />
-      <Text>test4</Text>
+      <Text>test5</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });

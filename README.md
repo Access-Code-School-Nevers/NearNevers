@@ -6,7 +6,7 @@ Voici le projet d'une application mobile pour la ville de Nevers.
 
 ## Installation
 
-Pour installer le projet il faut ouvrir une console et va dans le dossier de votre choix.
+Pour installer le projet il faut ouvrir une console. Ensuite placez-vous dans le dossier de votre choix.
 Les packages se téléchargeront automatiquement ! :)
 
 1. Commencez par cloner le projet dans le dossier :

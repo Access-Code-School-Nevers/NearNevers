@@ -1,10 +1,34 @@
-import React from 'react';
-import Home from './Home/Home'
+import * as React from 'react';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
+import { Constants } from 'expo';
+import Map from './Components/Map'
+import Home1 from './Home/Home';
+
+// You can import from local files
+import AssetExample from './Components/Button.js';
+import Nav from './navigation/Navigation.js';
+
+// or any pure javascript modules available in npm
+import { Card } from 'react-native-paper';
+import { Ionicons as Icon } from '@expo/vector-icons';
+import { createStackNavigator, createDrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
 
 export default class App extends React.Component {
-  render(){
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    console.log(this.props);
     return (
-      <Home/>
+      <Nav />
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+	header: { padding: 15, paddingTop: 22 },
+});

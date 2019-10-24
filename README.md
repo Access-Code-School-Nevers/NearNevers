@@ -13,46 +13,28 @@ Les packages doivent obligatoirement être installés!
 ```bash
 git clone https://github.com/Access-Code-School-Nevers/NearNevers.git
 ```
-2. Ensuite installer react native :
+2. Ensuite installer react native (les packages vont ce télécharger automatiquement) :
 ```bash
-npm install -g expo-cli
+npm install
 ```
 
-3. Il faut réinitialiser les modules git que l'on a cloné pour qu'ils soient correctement installé :
+### 3. Et lancer le serveur :
 ```bash
-git submodule init
-```
-```bash
-git submodule update
+npm start
 ```
 
 ### Les packages
 
-Pour installer les packages, taper ces commandes toujours dans votre dossier react-native :
+Voici la liste des packages installés et leurs commandes.
 
-4. react-native-material-ui
+1. react-native-material-ui
 ```bash
 yarn add react-native-material-ui
 ```
-5. react-native-vector-icons
+2. react-native-vector-icons
 ```bash
 npm install --save react-native-vector-icons
 ```
-6. Pour finaliser l'installation des packages :
-```bash
-npm install
-```
-### Et lancer le serveur :
-```bash
-npm start
-```
-<!-- ```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-``` -->
 
 ## Contributeur
 ...

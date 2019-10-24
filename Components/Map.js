@@ -7,25 +7,23 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Constants } from 'expo';
-import Map from '../Components/Map.js';
 // You can import from local files
-import AssetExample from '../Components/Button.js';
+import AssetExample from './Button.js';
 
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 import { Ionicons as Icon } from '@expo/vector-icons';
-import { createStackNavigator, DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
+import { DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
 import { Toolbar } from 'react-native-material-ui';
-
-export default class Home extends React.Component {
+export default class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-
   static navigationOptions = {
-    drawerLabel: 'Home',
+    drawerLabel: 'Map',
   };
+
   render() {
     return (
       <View style={styles.container}>
@@ -34,14 +32,14 @@ export default class Home extends React.Component {
         navigation={this.props.navigation}
         leftElement="menu"
         onLeftElementPress={ () => this.props.navigation.toggleDrawer()}
-        centerElement="NeversNow"
+        centerElement="Map"
         searchable={{
           autoFocus: true,
           placeholder: 'Rechercher',
         }}
         />
         <View style={styles.header}>
-          <Text> 'hi' </Text>
+          <Text> 'MAP' </Text>
         </View>
 
       </View>

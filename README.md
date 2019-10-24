@@ -37,7 +37,11 @@ npm install --save react-native-vector-icons
 ```
 
 ## Contributeur
-...
+
+ErwannLG
+Blaster91
+Cristeto
+Thomas-Gallusser
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

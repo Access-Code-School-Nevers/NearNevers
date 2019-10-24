@@ -15,7 +15,7 @@ import AssetExample from '../Components/Button.js';
 import { Card } from 'react-native-paper';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { createStackNavigator, DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
-import { Toolbar } from 'react-native-material-ui';
+import { Toolbar, COLOR } from 'react-native-material-ui';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -35,9 +35,16 @@ export default class Home extends React.Component {
         leftElement="menu"
         onLeftElementPress={ () => this.props.navigation.toggleDrawer()}
         centerElement="NeversNow"
+        style={{
+            container: { backgroundColor: 'grey' },
+            leftElement: { color: 'black' },
+            titleText: { color: 'white' },
+            rightElement: { color: 'white' },
+          }}
         searchable={{
           autoFocus: true,
           placeholder: 'Rechercher',
+
         }}
         />
         <View style={styles.header}>

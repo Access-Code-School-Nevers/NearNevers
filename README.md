@@ -1,4 +1,3 @@
-
 # Créer une application mobile "NeversNow" avec "React Native"
 
 Voici le projet d'une application mobile pour la ville de Nevers.
@@ -13,12 +12,12 @@ Les packages se téléchargeront automatiquement ! :)
 ```bash
 git clone https://github.com/Access-Code-School-Nevers/NearNevers.git
 ```
-2. Ensuite installer react native :
+2. Ensuite installez react native :
 ```bash
 npm install
 ```
 
-### 3. Et lancer le serveur :
+### 3. Et lancez le serveur :
 ```bash
 npm start
 ```

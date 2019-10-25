@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Dimensions } from 'react-native';
 import { Constants } from 'expo';
 // You can import from local files
 
@@ -8,6 +8,7 @@ import { Card } from 'react-native-paper';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
 import { Toolbar } from 'react-native-material-ui';
+import MapView from 'react-native-maps';
 export default class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -38,9 +39,16 @@ export default class Map extends React.Component {
         }}
         />
         <View style={styles.header}>
-          <Text> 'MAP' </Text>
+          <MapView style={styles.mapStyle}
+            initialRegion={{
+              latitude: 46.9896,
+              longitude: 3.159,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          >
+          </MapView>
         </View>
-
       </View>
     );
   }
@@ -58,7 +66,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   header: {
-    padding: 15,
-    paddingTop: 22
+    padding: 0,
+    paddingTop: 0
+  },
+  mapStyle: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
   },
 });

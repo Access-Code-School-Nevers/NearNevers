@@ -3,10 +3,9 @@ import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-nativ
 import { Constants } from 'expo';
 import Map from './Components/Map'
 import Home1 from './Home/Home';
-
-// You can import from local files
-import AssetExample from './Components/Button.js';
 import Nav from './navigation/Navigation.js';
+import { AppLoading } from 'react';
+
 
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
@@ -20,7 +19,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <Nav />
     );

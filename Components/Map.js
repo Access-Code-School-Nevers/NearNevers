@@ -1,14 +1,7 @@
 import * as React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 import { Constants } from 'expo';
 // You can import from local files
-import AssetExample from './Button.js';
 
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
@@ -33,6 +26,12 @@ export default class Map extends React.Component {
         leftElement="menu"
         onLeftElementPress={ () => this.props.navigation.toggleDrawer()}
         centerElement="Map"
+        style={{
+            container: { backgroundColor: '#302743' },
+            leftElement: { color: 'white' },
+            titleText: { color: 'white' },
+            rightElement: { color: 'white' },
+          }}
         searchable={{
           autoFocus: true,
           placeholder: 'Rechercher',
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
-    backgroundColor: '#FFF',
+    backgroundColor: 'white',
   },
   innerContainer: {
     flex: 1,

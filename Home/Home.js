@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry, InlineImage } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry, InlineImage, SafeAreaView, ScrollView } from 'react-native';
 import { Constants } from 'expo';
 import Map from '../Components/Map.js';
-// or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { createStackNavigator, DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
 import { Toolbar, COLOR } from 'react-native-material-ui';
+
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class Home extends React.Component {
   };
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <Toolbar
         navigation={this.props.navigation}
@@ -98,14 +98,15 @@ export default class Home extends React.Component {
          </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.containerImg}>
+      <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map')}>
       <Image
-        style={styles.imageMap}
-        source={require('../assets/icons/map.png')}
+      style={styles.imageMap}
+      source={require('../assets/icons/map.png')}
       />
       </TouchableOpacity>
 
-        </View>
+
+  </ScrollView>
     );
   }
 }

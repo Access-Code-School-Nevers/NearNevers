@@ -5,9 +5,6 @@ import Map from './Components/Map'
 import Home1 from './Home/Home';
 import Nav from './navigation/Navigation.js';
 import { AppLoading } from 'react';
-
-
-// or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { createStackNavigator, createDrawerNavigator, DrawerItems, Navigation } from 'react-navigation';

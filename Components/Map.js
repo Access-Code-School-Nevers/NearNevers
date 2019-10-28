@@ -36,6 +36,7 @@ export default class Map extends React.Component {
         searchable={{
           autoFocus: true,
           placeholder: 'Rechercher',
+
         }}
         />
         <View style={styles.header}>

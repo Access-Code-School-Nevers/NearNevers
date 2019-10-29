@@ -22,7 +22,7 @@ export default class Home extends React.Component {
   };
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <Toolbar
         navigation={this.props.navigation}
@@ -56,7 +56,7 @@ export default class Home extends React.Component {
         }
 
         />
-
+      <ScrollView>
       <TouchableOpacity style={styles.header}>
         <Image
           style={styles.image}
@@ -123,9 +123,9 @@ export default class Home extends React.Component {
       source={require('../assets/icons/map.png')}
       />
       </TouchableOpacity>
+      </ScrollView>
 
-
-  </ScrollView>
+  </View>
     );
   }
 }
@@ -144,7 +144,9 @@ const styles = StyleSheet.create({
   header: {
     padding: 10,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: "#f9f9f9"
   },
   image: {
     width: 55,
@@ -162,6 +164,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   imageMap: {
-    marginTop: 50
+    marginTop: 50,
+    marginBottom: 50
   },
 });

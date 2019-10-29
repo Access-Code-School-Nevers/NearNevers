@@ -9,6 +9,19 @@ import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerItems, Navigation } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer} from 'react-navigation';
+import { Platform, Dimensions } from 'react-native'
+import MenuDrawer from '../Components/MenuDrawer'
+
+const WIDTH = Dimensions.get('window').width;
+
+const DrawerConfig = {
+  drawerWidth: WIDTH*0.5,
+  contentComponent: ({ navigation }) => {
+    return(<MenuDrawer navigation={navigation}/>)
+  }
+}
+
+
 
 const Nav = createDrawerNavigator({
   Home: {
@@ -17,6 +30,8 @@ const Nav = createDrawerNavigator({
   Map: {
     screen: Map
   },
- });
+},
+DrawerConfig
+);
 
  export default createAppContainer(Nav);

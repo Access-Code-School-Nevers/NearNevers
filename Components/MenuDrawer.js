@@ -39,7 +39,7 @@ export default class MenuDrawer extends React.Component {
         </View>
         <View style={styles.footer}>
           <Text style={styles.description}>NeversNow</Text>
-          <Text style={styles.version}>v0.5</Text>
+          <Text style={styles.version}>v1.0</Text>
         </View>
       </View>
     )

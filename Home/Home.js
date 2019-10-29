@@ -17,9 +17,9 @@ export default class Home extends React.Component {
     };
   }
 
-  static navigationOptions = {
-    drawerLabel: 'Home',
-  };
+static navigationOptions = {
+  drawerLabel: 'Home',
+};
   render() {
     return (
       <View style={styles.container}>
@@ -27,14 +27,14 @@ export default class Home extends React.Component {
         <Toolbar
         navigation={this.props.navigation}
         leftElement="menu"
-
         onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
         centerElement="NeversNow"
         style={{
             container: { backgroundColor: '#302743' },
             leftElement: { color: this.state.buttonLeftPressColor },
             titleText: { color: 'white' },
-            rightElement: { color: 'white' }
+            rightElement: { color: 'white' },
+            padding: 0
           }}
         searchable={{
           autoFocus: true,
@@ -57,6 +57,13 @@ export default class Home extends React.Component {
 
         />
       <ScrollView>
+        <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map')}>
+          <Image
+            style={styles.imageMap}
+            source={require('../assets/icons/map800.png')}
+          />
+        </TouchableOpacity>
+
       <TouchableOpacity style={styles.header}>
         <Image
           style={styles.image}
@@ -116,15 +123,7 @@ export default class Home extends React.Component {
            Corbeilles
          </Text>
       </TouchableOpacity>
-
-      <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map')}>
-      <Image
-      style={styles.imageMap}
-      source={require('../assets/icons/map.png')}
-      />
-      </TouchableOpacity>
       </ScrollView>
-
   </View>
     );
   }
@@ -136,13 +135,8 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     backgroundColor: 'white',
   },
-  innerContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   header: {
-    padding: 10,
+    padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomWidth: 1,
@@ -157,14 +151,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 22,
   },
-  containerImg: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%'
-  },
+
   imageMap: {
-    marginTop: 50,
-    marginBottom: 50
+    width: '100%',
+    resizeMode: 'cover',
+    height: 140,
   },
 });

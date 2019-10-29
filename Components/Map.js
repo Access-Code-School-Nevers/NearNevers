@@ -21,20 +21,6 @@ export default class Map extends React.Component {
     drawerLabel: 'Map',
   };
 
-  _MapPing() {
-    console.log("aaa")
-
-      const url = '127.0.0.1:8000/getWifi'
-       fetch(url, { headers: { 'app': 'neversNow'}})
-        .then((response) => {return response.json()})
-        .then((response) => console.log(response))
-        .catch((error) => console.error(error))
-
-      return;
-
-
-
-  }
 
   render() {
     return (
@@ -81,7 +67,6 @@ export default class Map extends React.Component {
               longitudeDelta: 0.0421,
             }}
           >
-          {this._MapPing()}
           </MapView>
         </View>
       </View>

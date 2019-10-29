@@ -13,7 +13,6 @@ export default class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonLeftPress: false,
       buttonSearchPress: false,
       buttonLeftPressColor: "white"
     };

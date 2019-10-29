@@ -12,7 +12,6 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonLeftPress: false,
       buttonSearchPress: false,
       buttonLeftPressColor: "white"
     };

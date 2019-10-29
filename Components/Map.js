@@ -25,7 +25,7 @@ export default class Map extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="white" barStyle="light-content" />
+        <StatusBar backgroundColor="white" barStyle="light-content"/>
         <Toolbar
           navigation={this.props.navigation}
           leftElement="menu"

@@ -23,7 +23,7 @@ static navigationOptions = {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="white" barStyle="light-content" />
+        <StatusBar backgroundColor="white" barStyle="light-content"/>
         <Toolbar
         leftElement="menu"
         onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
@@ -152,6 +152,7 @@ const styles = StyleSheet.create({
   },
 
   imageMap: {
+    marginTop: 10,
     width: '100%',
     resizeMode: 'cover',
     height: 140,

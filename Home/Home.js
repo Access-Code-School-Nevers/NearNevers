@@ -23,7 +23,7 @@ static navigationOptions = {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar backgroundColor="white" barStyle="light-content" />
         <Toolbar
         leftElement="menu"
         onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}

@@ -23,7 +23,7 @@ static navigationOptions = {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar barStyle="light-content" />
           <Toolbar
             navigation={this.props.navigation}
             leftElement="menu"

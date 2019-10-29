@@ -6,6 +6,7 @@ import {
   Dimensions,
   StyleSheet,
   TouchableOpacity,
+  Image
 } from 'react-native';
 
 const WIDTH = Dimensions.get('window').width
@@ -25,7 +26,11 @@ export default class MenuDrawer extends React.Component {
       <View style={styles.container}>
 
         <View style={styles.topLinks}>
-          <Text style={{paddingTop: 40, color: "white"}}>MenuDrawer</Text>
+          <View style={styles.headerDrawer}>
+            <View style={styles.imgView}>
+              <Image style={styles.img} source={require('../assets/icons/logo_white.png')} />
+            </View>
+          </View>
         </View>
         <View style={styles.bottomLinks}>
           {this.navLink('Home', 'Home')}
@@ -49,6 +54,24 @@ const styles = StyleSheet.create({
   topLinks: {
     height: 100,
     backgroundColor: '#302743'
+  },
+  headerDrawer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 25,
+    borderBottomWidth: 1,
+    borderBottomColor: '#777777',
+  },
+  imgView: {
+    flex: 3,
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  img: {
+    height: 60,
+    width: 60,
+    marginLeft: 10
   },
   bottomLinks: {
     flex: 1,

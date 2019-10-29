@@ -26,36 +26,32 @@ export default class Map extends React.Component {
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <Toolbar
-        navigation={this.props.navigation}
-        leftElement="menu"
-
-        onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
-        centerElement="NeversNow"
-        style={{
-            container: { backgroundColor: '#302743' },
-            leftElement: { color: this.state.buttonLeftPressColor },
-            titleText: { color: 'white' },
-            rightElement: { color: 'white' }
+          navigation={this.props.navigation}
+          leftElement="menu"
+          onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
+          centerElement="NeversNow"
+          style={{
+              container: { backgroundColor: '#302743' },
+              leftElement: { color: this.state.buttonLeftPressColor },
+              titleText: { color: 'white' },
+              rightElement: { color: 'white' }
           }}
-        searchable={{
-          autoFocus: true,
-          placeholder: 'Rechercher',
-          onSearchClosed: () => {if (this.state.buttonSearchPress == true){
-            this.setState({
-              buttonLeftPressColor: "white",
-              buttonSearchPress: false,
-            });
+          searchable={{
+            autoFocus: true,
+            placeholder: 'Rechercher',
+            onSearchClosed: () => {if (this.state.buttonSearchPress == true){
+              this.setState({
+                buttonLeftPressColor: "white",
+                buttonSearchPress: false,
+              });
             }},
-          onSearchPressed: () => {if(this.state.buttonSearchPress == false){
-            this.setState({
-              buttonSearchPress: true,
-              buttonLeftPressColor: "#302743"
-            });
-          }
-        }
-      }
-        }
-
+            onSearchPressed: () => {if(this.state.buttonSearchPress == false){
+              this.setState({
+                buttonSearchPress: true,
+                buttonLeftPressColor: "#302743"
+              });
+            }}
+          }}
         />
         <View style={styles.header}>
           <MapView style={styles.mapStyle}

@@ -39,7 +39,7 @@ export default class MenuDrawer extends React.Component {
         </View>
         <View style={styles.footer}>
           <Text style={styles.description}>NeversNow</Text>
-          <Text style={styles.version}>v0.5</Text>
+          <Text style={styles.version}>v1.0</Text>
         </View>
       </View>
     )
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     borderTopWidth: 1,
-    borderTopColor: 'lightgray'
+    borderTopColor: 'lightgrey'
   },
   link: {
     flex: 1,
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'right',
     marginRight: 20,
-    color: 'gray'
+    color: 'grey'
   },
   description: {
     flex: 1,

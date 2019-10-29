@@ -24,7 +24,7 @@ export default class MenuDrawer extends React.Component {
   render() {
     return(
       <View style={styles.container}>
-
+        <View style={styles.statusBar}></View>
         <View style={styles.topLinks}>
           <View style={styles.headerDrawer}>
             <View style={styles.imgView}>
@@ -47,6 +47,9 @@ export default class MenuDrawer extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  statusBar: {
+    height: 24
+  },
   container: {
     flex:1,
     backgroundColor: 'grey',
@@ -59,7 +62,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 25,
     borderBottomWidth: 1,
     borderBottomColor: '#777777',
   },

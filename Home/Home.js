@@ -11,7 +11,10 @@ import { Toolbar, COLOR } from 'react-native-material-ui';
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      buttonSearchPress: false,
+      buttonLeftPressColor: "white"
+    };
   }
 
   static navigationOptions = {
@@ -19,25 +22,41 @@ export default class Home extends React.Component {
   };
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <Toolbar
         navigation={this.props.navigation}
         leftElement="menu"
-        onLeftElementPress={ () => this.props.navigation.toggleDrawer()}
+
+        onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
         centerElement="NeversNow"
         style={{
             container: { backgroundColor: '#302743' },
-            leftElement: { color: 'white' },
+            leftElement: { color: this.state.buttonLeftPressColor },
             titleText: { color: 'white' },
-            rightElement: { color: 'white' },
+            rightElement: { color: 'white' }
           }}
         searchable={{
           autoFocus: true,
           placeholder: 'Rechercher',
-        }}
-        />
+          onSearchClosed: () => {if (this.state.buttonSearchPress == true){
+            this.setState({
+              buttonLeftPressColor: "white",
+              buttonSearchPress: false,
+            });
+            }},
+          onSearchPressed: () => {if(this.state.buttonSearchPress == false){
+            this.setState({
+              buttonSearchPress: true,
+              buttonLeftPressColor: "#302743"
+            });
+          }
+        }
+      }
+        }
 
+        />
+      <ScrollView>
       <TouchableOpacity style={styles.header}>
         <Image
           style={styles.image}
@@ -104,9 +123,9 @@ export default class Home extends React.Component {
       source={require('../assets/icons/map.png')}
       />
       </TouchableOpacity>
+      </ScrollView>
 
-
-  </ScrollView>
+  </View>
     );
   }
 }
@@ -125,7 +144,9 @@ const styles = StyleSheet.create({
   header: {
     padding: 10,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: "#f9f9f9"
   },
   image: {
     width: 55,
@@ -143,6 +164,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   imageMap: {
-    marginTop: 50
+    marginTop: 50,
+    marginBottom: 50
   },
 });

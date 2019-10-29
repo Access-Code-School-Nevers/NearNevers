@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
   },
   topLinks: {
-    height: 100,
+    height: 120,
     backgroundColor: '#302743'
   },
   headerDrawer: {
@@ -69,11 +69,13 @@ const styles = StyleSheet.create({
     flex: 3,
     flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   img: {
     height: 60,
     width: 60,
-    marginLeft: 10
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   bottomLinks: {
     flex: 1,

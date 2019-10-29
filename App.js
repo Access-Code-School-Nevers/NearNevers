@@ -6,7 +6,7 @@ import Home1 from './Home/Home';
 import Nav from './navigation/Navigation.js';
 import { AppLoading } from 'react';
 import { Card } from 'react-native-paper';
-import { Ionicons as Icon } from '@expo/vector-icons';
+
 import { createStackNavigator, createDrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
 
 export default class App extends React.Component {

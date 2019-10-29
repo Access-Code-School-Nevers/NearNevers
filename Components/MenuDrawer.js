@@ -34,10 +34,10 @@ export default class MenuDrawer extends React.Component {
         </View>
         <View style={styles.bottomLinks}>
           <View style={styles.links}>
-            {this.navLink('Home', 'Home')}
+            {this.navLink('Home', 'Accueil')}
           </View>
           <View style={styles.links}>
-            {this.navLink('Map', 'Map')}
+            {this.navLink('Map', 'Carte')}
           </View>
           <View style={styles.links}>
             {this.navLink('Paramètres', 'Paramètres')}

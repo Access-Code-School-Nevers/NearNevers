@@ -5,7 +5,6 @@ import Map from '../Components/Map'
 import Home from '../Home/Home';
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
-import { Ionicons as Icon } from '@expo/vector-icons';
 import { DrawerItems, Navigation } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer} from 'react-navigation';
@@ -15,7 +14,7 @@ import MenuDrawer from '../Components/MenuDrawer'
 const WIDTH = Dimensions.get('window').width;
 
 const DrawerConfig = {
-  drawerWidth: WIDTH*0.45,
+  drawerWidth: WIDTH*0.7,
   contentComponent: ({ navigation }) => {
     return(<MenuDrawer navigation={navigation}/>)
   }

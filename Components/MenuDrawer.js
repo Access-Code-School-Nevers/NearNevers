@@ -30,7 +30,11 @@ export default class MenuDrawer extends React.Component {
         <View style={styles.bottomLinks}>
           {this.navLink('Home', 'Home')}
           {this.navLink('Map', 'Map')}
-          {this.navLink('Paramètre', 'Paramètre')}
+          {this.navLink('Paramètres', 'Paramètres')}
+        </View>
+        <View style={styles.footer}>
+          <Text style={styles.description}>NeversNow</Text>
+          <Text style={styles.version}>v0.5</Text>
         </View>
       </View>
     )
@@ -43,7 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
   },
   topLinks: {
-    height: 160,
+    height: 100,
     backgroundColor: '#302743'
   },
   bottomLinks: {
@@ -52,6 +56,14 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 450,
   },
+  footer: {
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderTopWidth: 1,
+    borderTopColor: 'lightgray'
+  },
   link: {
     flex: 1,
     fontSize: 20,
@@ -59,5 +71,16 @@ const styles = StyleSheet.create({
     paddingLeft: 14,
     margin: 5,
     textAlign: 'left'
+  },
+  version: {
+    flex: 1,
+    textAlign: 'right',
+    marginRight: 20,
+    color: 'gray'
+  },
+  description: {
+    flex: 1,
+    marginLeft: 20,
+    fontSize: 16,
   }
 })

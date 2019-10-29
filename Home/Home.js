@@ -48,7 +48,7 @@ static navigationOptions = {
           onSearchPressed: () => {if(this.state.buttonSearchPress == false){
             this.setState({
               buttonSearchPress: true,
-              buttonLeftPressColor: "#302743"
+              buttonLeftPressColor: "#3F355B"
             });
           }
         }

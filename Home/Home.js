@@ -11,7 +11,11 @@ import { Toolbar, COLOR } from 'react-native-material-ui';
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      buttonLeftPress: false,
+      buttonSearchPress: false,
+      buttonLeftPressColor: "white"
+    };
   }
 
   static navigationOptions = {
@@ -24,18 +28,34 @@ export default class Home extends React.Component {
         <Toolbar
         navigation={this.props.navigation}
         leftElement="menu"
-        onLeftElementPress={ () => this.props.navigation.toggleDrawer()}
+
+        onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
         centerElement="NeversNow"
         style={{
             container: { backgroundColor: '#302743' },
-            leftElement: { color: 'white' },
+            leftElement: { color: this.state.buttonLeftPressColor },
             titleText: { color: 'white' },
-            rightElement: { color: 'white' },
+            rightElement: { color: 'white' }
           }}
         searchable={{
           autoFocus: true,
           placeholder: 'Rechercher',
-        }}
+          onSearchClosed: () => {if (this.state.buttonSearchPress == true){
+            this.setState({
+              buttonLeftPressColor: "white",
+              buttonSearchPress: false,
+            });
+            }},
+          onSearchPressed: () => {if(this.state.buttonSearchPress == false){
+            this.setState({
+              buttonSearchPress: true,
+              buttonLeftPressColor: "#302743"
+            });
+          }
+        }
+      }
+        }
+
         />
 
       <TouchableOpacity style={styles.header}>

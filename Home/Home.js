@@ -25,9 +25,8 @@ export default class Home extends React.Component {
       <View style={styles.container}>
         <StatusBar barStyle="dark-content" />
         <Toolbar
-        navigation={this.props.navigation}
-        leftElement="menu"
 
+        leftElement="menu"
         onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
         centerElement="NeversNow"
         style={{

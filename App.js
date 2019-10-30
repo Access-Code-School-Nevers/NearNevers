@@ -1,18 +1,10 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
-import { Constants } from 'expo';
-import Map from './Components/Map'
-import Home1 from './Home/Home';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import Nav from './navigation/Navigation.js';
-import { AppLoading } from 'react';
 import { Card } from 'react-native-paper';
 
 import * as Font from "expo-font";
 import { ActivityIndicator } from "react-native";
-
-import { createStackNavigator, createDrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
-
-
 
 export default class App extends React.Component {
   constructor(props) {
@@ -34,7 +26,15 @@ export default class App extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <ActivityIndicator />;
+      return <ActivityIndicator style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}/>;
     }
     return (
       <Nav />

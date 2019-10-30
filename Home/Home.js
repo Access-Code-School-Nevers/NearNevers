@@ -13,13 +13,20 @@ export default class Home extends React.Component {
     this.state = {
       buttonSearchPress: false,
       buttonLeftPressColor: "white",
-      inputColorSearch: "white"
+      inputColorSearch: "white",
+      wifi: false
     };
   }
 
-static navigationOptions = {
-  drawerLabel: 'Home',
-};
+  _activeWifi() {
+    this.setState({wifi: !this.state.wifi})
+    this.props.navigation.navigate('Map', {wifi: !this.state.wifi})
+  }
+
+  static navigationOptions = {
+    drawerLabel: 'Home',
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -64,7 +71,7 @@ static navigationOptions = {
             />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header}>
+          <TouchableOpacity style={styles.header} onPress={() => this.props.navigation.navigate('Map', {pmr: false})}>
             <Image
               style={styles.image}
               source={require('../assets/icons/handiaccess.png')}
@@ -84,7 +91,7 @@ static navigationOptions = {
              </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header}>
+          <TouchableOpacity style={styles.header} onPress={() => this._activeWifi()}>
             <Image
               style={styles.image}
               source={require('../assets/icons/wifi.png')}

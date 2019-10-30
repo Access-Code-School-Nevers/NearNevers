@@ -18,13 +18,14 @@ const DrawerConfig = {
     return(<MenuDrawer navigation={navigation}/>)
   }
 }
+
 const Nav = createDrawerNavigator({
   Home: {
     screen: Home,
   },
-  Map: {
-    screen: Map
-  },
+    Map: {
+      screen: Map
+    },
 },
 DrawerConfig
 );

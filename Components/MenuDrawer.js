@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
   },
   topLinks: {
-    height: 120,
+    height: 135,
     backgroundColor: '#302743'
   },
   headerDrawer: {
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
-    height: 60,
-    width: 60,
+    height: 75,
+    width: 75,
     alignItems: 'center',
     justifyContent: 'center'
   },

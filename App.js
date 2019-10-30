@@ -8,8 +8,9 @@ import { AppLoading } from 'react';
 import { Card } from 'react-native-paper';
 import * as Font from "expo-font";
 import { ActivityIndicator } from "react-native";
-
 import { createStackNavigator, createDrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
+
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class App extends React.Component {
 
   async componentWillMount() {
     await Font.loadAsync({
-      Roboto: require("./assets/fonts/Roboto-Regular.ttf"),
+      Roboto: require("./assets/fonts/Roboto.ttf"),
       Roboto_medium: require("./assets/fonts/Roboto-Medium.ttf"),
     });
     this.setState({ loading: false });
@@ -35,10 +36,14 @@ export default class App extends React.Component {
       <Nav />
     );
   }
+
+
 }
+
 
 
 const styles = StyleSheet.create({
 	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 	header: { padding: 15, paddingTop: 22 },
+
 });

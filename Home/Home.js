@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry, InlineImage, SafeAreaView, ScrollView } from 'react-native';
 import { Constants } from 'expo';
 import Map from '../Components/Map.js';
@@ -12,7 +12,8 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       buttonSearchPress: false,
-      buttonLeftPressColor: "white"
+      buttonLeftPressColor: "white",
+      inputColorSearch: "white"
     };
   }
 
@@ -31,23 +32,26 @@ static navigationOptions = {
             style={{
                 container: { backgroundColor: '#302743' },
                 leftElement: { color: this.state.buttonLeftPressColor },
-                titleText: { color: 'white' },
+                titleText: { color: this.state.inputColorSearch },
                 rightElement: { color: 'white' },
                 padding: 0
             }}
             searchable={{
+              color: "black",
               autoFocus: true,
               placeholder: 'Rechercher',
               onSearchClosed: () => {if (this.state.buttonSearchPress == true){
                 this.setState({
                   buttonLeftPressColor: "white",
                   buttonSearchPress: false,
+                  inputColorSearch: "white"
                 });
               }},
               onSearchPressed: () => {if(this.state.buttonSearchPress == false){
                 this.setState({
                   buttonSearchPress: true,
-                  buttonLeftPressColor: "#3F355B"
+                  buttonLeftPressColor: "lightgrey",
+                  inputColorSearch: "#302743"
                 });
               }}
             }}

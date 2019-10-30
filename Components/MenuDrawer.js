@@ -33,9 +33,15 @@ export default class MenuDrawer extends React.Component {
           </View>
         </View>
         <View style={styles.bottomLinks}>
-          {this.navLink('Home', 'Home')}
-          {this.navLink('Map', 'Map')}
-          {this.navLink('Paramètres', 'Paramètres')}
+          <View style={styles.links}>
+            {this.navLink('Home', 'Accueil')}
+          </View>
+          <View style={styles.links}>
+            {this.navLink('Map', 'Carte')}
+          </View>
+          <View style={styles.links}>
+            {this.navLink('Paramètres', 'Paramètres')}
+          </View>
         </View>
         <View style={styles.footer}>
           <Text style={styles.description}>Nevers Now</Text>
@@ -63,7 +69,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#777777',
+    borderBottomColor: '#f3f3f3',
   },
   imgView: {
     flex: 3,
@@ -83,13 +89,15 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 450,
   },
+  links: {
+    borderBottomWidth: 1,
+    borderColor: "#f3f3f3"
+  },
   footer: {
-    height: 50,
+    height: 30,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white',
-    borderTopWidth: 1,
-    borderTopColor: 'lightgrey'
+    backgroundColor: '#444',
   },
   link: {
     flex: 1,
@@ -103,12 +111,15 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'right',
     marginRight: 20,
-    color: 'grey'
+    color: '#eaeaea'
   },
   description: {
     flex: 1,
     marginLeft: 20,
     fontSize: 16,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold'
   }
 })

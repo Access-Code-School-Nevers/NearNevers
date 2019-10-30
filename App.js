@@ -25,7 +25,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
    Font.loadAsync({
-     'open-sans-bold': require('./assets/fonts/Roboto.ttf'),
+     'Roboto': require('./assets/fonts/Roboto.ttf'),
    });
  }
 

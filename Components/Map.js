@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Dimensions } from 'react-native';
 import { Constants } from 'expo';
-// You can import from local files
-
+// You can import from local file
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 import { DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
@@ -17,6 +16,7 @@ export default class Map extends React.Component {
     this.state = {
       buttonSearchPress: false,
       buttonLeftPressColor: "white",
+      inputColorSearch: "white",
       location : null,
       region: null,
       errorMessage: null,
@@ -57,36 +57,36 @@ export default class Map extends React.Component {
       <View style={styles.container}>
         <StatusBar backgroundColor="white" barStyle="light-content"/>
         <Toolbar
-        navigation={this.props.navigation}
-        leftElement="menu"
-
-        onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
-        centerElement="NeversNow"
-        style={{
-            container: { backgroundColor: '#302743' },
-            leftElement: { color: this.state.buttonLeftPressColor },
-            titleText: { color: 'white' },
-            rightElement: { color: 'white' }
+          navigation={this.props.navigation}
+          leftElement="menu"
+          onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
+          centerElement="NeversNow"
+          style={{
+              container: { backgroundColor: '#302743' },
+              leftElement: { color: this.state.buttonLeftPressColor },
+              titleText: { color: this.state.inputColorSearch },
+              rightElement: { color: 'white' },
+              padding: 0
           }}
-        searchable={{
-          autoFocus: true,
-          placeholder: 'Rechercher',
-          onSearchClosed: () => {if (this.state.buttonSearchPress == true){
-            this.setState({
-              buttonLeftPressColor: "white",
-              buttonSearchPress: false,
-            });
+          searchable={{
+            color: "black",
+            autoFocus: true,
+            placeholder: 'Rechercher',
+            onSearchClosed: () => {if (this.state.buttonSearchPress == true){
+              this.setState({
+                buttonLeftPressColor: "white",
+                buttonSearchPress: false,
+                inputColorSearch: "white"
+              });
             }},
-          onSearchPressed: () => {if(this.state.buttonSearchPress == false){
-            this.setState({
-              buttonSearchPress: true,
-              buttonLeftPressColor: "#302743"
-            });
-          }
-        }
-      }
-        }
-
+            onSearchPressed: () => {if(this.state.buttonSearchPress == false){
+              this.setState({
+                buttonSearchPress: true,
+                buttonLeftPressColor: "lightgrey",
+                inputColorSearch: "#302743"
+              });
+            }}
+          }}
         />
         <View style={styles.header}>
           <MapView

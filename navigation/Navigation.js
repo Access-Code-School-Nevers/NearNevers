@@ -20,15 +20,13 @@ const DrawerConfig = {
   }
 }
 
-
-
 const Nav = createDrawerNavigator({
   Home: {
     screen: Home,
   },
-  Map: {
-    screen: Map
-  },
+    Map: {
+      screen: Map
+    },
 },
 DrawerConfig
 );

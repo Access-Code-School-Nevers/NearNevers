@@ -19,8 +19,8 @@ export default class Home extends React.Component {
   }
 
   _activeWifi() {
-    if (this.state.wifi) this.setState({wifi: false}); else this.setState({wifi: true});
-    this.props.navigation.navigate('Map', {wifi: this.state.wifi})
+    this.setState({wifi: !this.state.wifi})
+    this.props.navigation.navigate('Map', {wifi: !this.state.wifi})
   }
 
   static navigationOptions = {
@@ -71,7 +71,7 @@ export default class Home extends React.Component {
             />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header}>
+          <TouchableOpacity style={styles.header} onPress={() => this.props.navigation.navigate('Map', {pmr: false})}>
             <Image
               style={styles.image}
               source={require('../assets/icons/handiaccess.png')}
@@ -91,7 +91,7 @@ export default class Home extends React.Component {
              </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header}  onPress={() => this._activeWifi()}>
+          <TouchableOpacity style={styles.header} onPress={() => this._activeWifi()}>
             <Image
               style={styles.image}
               source={require('../assets/icons/wifi.png')}

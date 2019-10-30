@@ -36,6 +36,7 @@ export default class Map extends React.Component {
 
   componentWillMount() {
     this._getLocationAsync();
+    if (this.props.navigation.state.params.wifi && this.state.wifi.length == 0) this._getWifi(); else if (!this.props.navigation.state.params.wifi && this.state.wifi.length != 0) this.setState({wifi: []});
   }
 
   _getLocationAsync = async () => {
@@ -59,6 +60,10 @@ export default class Map extends React.Component {
 
     this.setState({ location });
   };
+
+  componentDidUpdate(){
+    if (this.props.navigation.state.params.wifi && this.state.wifi.length == 0) this._getWifi(); else if (!this.props.navigation.state.params.wifi && this.state.wifi.length != 0) this.setState({wifi: []});
+  }
 
   render() {
 

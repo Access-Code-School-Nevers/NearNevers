@@ -14,13 +14,35 @@ export default class Home extends React.Component {
       buttonSearchPress: false,
       buttonLeftPressColor: "white",
       inputColorSearch: "white",
-      wifi: false
+      wifi: false,
+      pmr: false,
+      wc: false
     };
   }
 
   _activeWifi() {
-    this.setState({wifi: !this.state.wifi})
-    this.props.navigation.navigate('Map', {wifi: !this.state.wifi})
+    this.setState({wifi: !this.state.wifi});
+    this.props.navigation.navigate('Map', {
+      wifi: !this.state.wifi,
+      pmr: this.state.pmr,
+      wc: this.state.wc
+    })
+  }
+  _activePmr() {
+    this.setState({pmr: !this.state.pmr});
+    this.props.navigation.navigate('Map', {
+      wifi: this.state.wifi,
+      pmr: !this.state.pmr,
+      wc: this.state.wc
+    })
+  }
+  _activeWc() {
+    this.setState({wc: !this.state.wc});
+    this.props.navigation.navigate('Map', {
+      wifi: this.state.wifi,
+      pmr: this.state.pmr,
+      wc: !this.state.wc
+    })
   }
 
   static navigationOptions = {
@@ -32,9 +54,12 @@ export default class Home extends React.Component {
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
           <Toolbar
-            navigation={this.props.navigation}
             leftElement="menu"
-            onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
+            onLeftElementPress={ () => {this.props.navigation.navigate('Map', {
+              wifi: this.state.wifi,
+              pmr: this.state.pmr,
+              wc: this.state.wc
+            })}}
             centerElement="NeversNow"
             style={{
                 container: { backgroundColor: '#302743' ,height: 80 },
@@ -64,14 +89,14 @@ export default class Home extends React.Component {
             }}
           />
         <ScrollView>
-          <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map')}>
+          <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map', {wifi: this.state.wifi, pmr: this.state.pmr, wc: this.state.wc})}>
             <Image
               style={styles.imageMap}
               source={require('../assets/icons/map800.png')}
             />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header} onPress={() => this.props.navigation.navigate('Map', {pmr: false})}>
+          <TouchableOpacity style={styles.header} onPress={() => this._activePmr()}>
             <Image
               style={styles.image}
               source={require('../assets/icons/handiaccess.png')}
@@ -81,7 +106,7 @@ export default class Home extends React.Component {
              </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header}>
+          <TouchableOpacity style={styles.header} onPress={() => this._activeWc()}>
             <Image
               style={styles.image}
               source={require('../assets/icons/toilettes.png')}

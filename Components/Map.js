@@ -1,10 +1,6 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Dimensions, Platform } from 'react-native';
-import { Constants } from 'expo';
-// You can import from local file
-// or any pure javascript modules available in npm
-import { Card } from 'react-native-paper';
-import { DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
+import { Text, View, StyleSheet, StatusBar, Dimensions, Platform } from 'react-native';
+import { Navigation } from 'react-navigation';
 import { Toolbar } from 'react-native-material-ui';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
@@ -133,14 +129,14 @@ export default class Map extends React.Component {
               this.setState({
                 buttonLeftPressColor: "white",
                 buttonSearchPress: false,
-                inputColorSearch: "white"
+                inputColorSearch: "white",
               });
             }},
             onSearchPressed: () => {if(this.state.buttonSearchPress == false){
               this.setState({
                 buttonSearchPress: true,
                 buttonLeftPressColor: "lightgrey",
-                inputColorSearch: "#302743"
+                inputColorSearch: "#302743",
               });
             }}
           }}
@@ -159,13 +155,16 @@ export default class Map extends React.Component {
 
           { this.state.pmr.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title='PMR' key={marker.id} pinColor={'#00aacd'}/> }) }
 
+
           { this.state.wc.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#ef5a27'}/> }) }
+
 
           { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#5d328f'}/> }) }
 
           { this.state.resto.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#ad54a0'}/> }) }
 
           { this.state.eglise.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
+
           </MapView>
         </View>
       </View>

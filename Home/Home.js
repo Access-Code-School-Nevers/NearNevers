@@ -17,6 +17,9 @@ export default class Home extends React.Component {
       wifi: false,
       pmr: false,
       wc: false,
+      resto: false,
+      eglise: false
+
     };
   }
 
@@ -25,7 +28,9 @@ export default class Home extends React.Component {
     this.props.navigation.navigate('Map', {
       wifi: !this.state.wifi,
       pmr: this.state.pmr,
-      wc: this.state.wc
+      wc: this.state.wc,
+      resto: this.state.resto,
+      eglise: this.state.eglise
     })
   }
   _activePmr() {
@@ -33,7 +38,9 @@ export default class Home extends React.Component {
     this.props.navigation.navigate('Map', {
       wifi: this.state.wifi,
       pmr: !this.state.pmr,
-      wc: this.state.wc
+      wc: this.state.wc,
+      resto: this.state.resto,
+      eglise: this.state.eglise
     })
   }
   _activeWc() {
@@ -41,7 +48,29 @@ export default class Home extends React.Component {
     this.props.navigation.navigate('Map', {
       wifi: this.state.wifi,
       pmr: this.state.pmr,
-      wc: !this.state.wc
+      wc: !this.state.wc,
+      resto: this.state.resto,
+      eglise: this.state.eglise
+    })
+  }
+  _activeResto() {
+    this.setState({resto: !this.state.resto});
+    this.props.navigation.navigate('Map', {
+      wifi: this.state.wifi,
+      pmr: this.state.pmr,
+      wc: this.state.wc,
+      resto: !this.state.resto,
+      eglise: this.state.eglise
+    })
+  }
+  _activeEglise() {
+    this.setState({eglise: !this.state.eglise});
+    this.props.navigation.navigate('Map', {
+      wifi: this.state.wifi,
+      pmr: this.state.pmr,
+      wc: this.state.wc,
+      resto: this.state.resto,
+      eglise: !this.state.eglise
     })
   }
 
@@ -58,7 +87,9 @@ export default class Home extends React.Component {
             onLeftElementPress={ () => {this.props.navigation.navigate('Map', {
               wifi: this.state.wifi,
               pmr: this.state.pmr,
-              wc: this.state.wc
+              wc: this.state.wc,
+              resto: this.state.resto,
+              eglise: this.state.eglise
             })}}
             centerElement="Home"
             style={{
@@ -89,10 +120,16 @@ export default class Home extends React.Component {
             }}
           />
         <ScrollView>
-          <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map', {wifi: this.state.wifi, pmr: this.state.pmr, wc: this.state.wc})}>
+          <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map', {
+            wifi: this.state.wifi,
+            pmr: this.state.pmr,
+            wc: this.state.wc,
+            resto: this.state.resto,
+            eglise: this.state.eglise
+          })}>
             <Image
               style={styles.imageMap}
-              source={require('../assets/icons/map800.png')}
+              source={require('../assets/icons/map2.png')}
             />
           </TouchableOpacity>
 
@@ -102,7 +139,7 @@ export default class Home extends React.Component {
               source={require('../assets/icons/handiaccess.png')}
             />
             <Text style={styles.text}>
-               Places Parking PMR
+               Place de parking PMR
              </Text>
           </TouchableOpacity>
 
@@ -122,37 +159,27 @@ export default class Home extends React.Component {
               source={require('../assets/icons/wifi.png')}
             />
              <Text style={styles.text}>
-               Points d'accès WIFI publics
+               WIFI publics
              </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header}>
+          <TouchableOpacity style={styles.header} onPress={() => this._activeResto()}>
             <Image
               style={styles.image}
-              source={require('../assets/icons/banc.png')}
+              source={require('../assets/icons/restaurant.png')}
             />
              <Text style={styles.text}>
-               Banc publics
+               Restaurants
              </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header}>
+          <TouchableOpacity style={styles.header} onPress={() => this._activeEglise()}>
             <Image
               style={styles.image}
-              source={require('../assets/icons/promenade.png')}
+              source={require('../assets/icons/monument.png')}
             />
              <Text style={styles.text}>
-               Promenades
-             </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.header}>
-            <Image
-              style={styles.image}
-              source={require('../assets/icons/corbeille.png')}
-            />
-             <Text style={styles.text}>
-               Corbeilles
+               Églises et Cathédrales
              </Text>
           </TouchableOpacity>
         </ScrollView>
@@ -187,6 +214,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     resizeMode: 'cover',
-    height: 140
+    height: 60
   },
 });

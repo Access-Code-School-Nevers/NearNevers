@@ -38,7 +38,7 @@ export default class MenuDrawer extends React.Component {
           {this.navLink('Paramètres', 'Paramètres')}
         </View>
         <View style={styles.footer}>
-          <Text style={styles.description}>NeversNow</Text>
+          <Text style={styles.description}>Nevers Now</Text>
           <Text style={styles.version}>v1.0</Text>
         </View>
       </View>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
   },
   topLinks: {
-    height: 120,
+    height: 135,
     backgroundColor: '#302743'
   },
   headerDrawer: {
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
-    height: 60,
-    width: 60,
+    height: 75,
+    width: 75,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -109,5 +109,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 20,
     fontSize: 16,
+    textAlign: 'center'
   }
 })

@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry
 import { Constants } from 'expo';
 import Map from '../Components/Map.js';
 import { Card } from 'react-native-paper';
-import { Ionicons as Icon } from '@expo/vector-icons';
 import { createStackNavigator, DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
 import { Toolbar, COLOR } from 'react-native-material-ui';
 

@@ -18,6 +18,8 @@ export default class Home extends React.Component {
     };
   }
 
+  resetAll = () => { this.setState({wifi: false,  pmr: false, wc: false, resto: false, eglise: false}) }
+
   _activeWifi() {
     this.setState({wifi: !this.state.wifi});
     this.props.navigation.navigate('Map', {
@@ -25,8 +27,9 @@ export default class Home extends React.Component {
       pmr: this.state.pmr,
       wc: this.state.wc,
       resto: this.state.resto,
-      eglise: this.state.eglise
-    })
+      eglise: this.state.eglise,
+      reset: this.resetAll.bind(this)
+    });
   }
   _activePmr() {
     this.setState({pmr: !this.state.pmr});
@@ -35,7 +38,8 @@ export default class Home extends React.Component {
       pmr: !this.state.pmr,
       wc: this.state.wc,
       resto: this.state.resto,
-      eglise: this.state.eglise
+      eglise: this.state.eglise,
+      reset: this.resetAll.bind(this)
     })
   }
   _activeWc() {
@@ -45,7 +49,8 @@ export default class Home extends React.Component {
       pmr: this.state.pmr,
       wc: !this.state.wc,
       resto: this.state.resto,
-      eglise: this.state.eglise
+      eglise: this.state.eglise,
+      reset: this.resetAll.bind(this)
     })
   }
   _activeResto() {
@@ -55,7 +60,8 @@ export default class Home extends React.Component {
       pmr: this.state.pmr,
       wc: this.state.wc,
       resto: !this.state.resto,
-      eglise: this.state.eglise
+      eglise: this.state.eglise,
+      reset: this.resetAll.bind(this)
     })
   }
   _activeEglise() {
@@ -65,7 +71,8 @@ export default class Home extends React.Component {
       pmr: this.state.pmr,
       wc: this.state.wc,
       resto: this.state.resto,
-      eglise: !this.state.eglise
+      eglise: !this.state.eglise,
+      reset: this.resetAll.bind(this)
     })
   }
 
@@ -84,7 +91,8 @@ export default class Home extends React.Component {
               pmr: this.state.pmr,
               wc: this.state.wc,
               resto: this.state.resto,
-              eglise: this.state.eglise
+              eglise: this.state.eglise,
+              reset: this.resetAll.bind(this)
             })}}
             centerElement="Home"
             style={{
@@ -120,7 +128,8 @@ export default class Home extends React.Component {
             pmr: this.state.pmr,
             wc: this.state.wc,
             resto: this.state.resto,
-            eglise: this.state.eglise
+            eglise: this.state.eglise,
+            reset: this.resetAll.bind(this)
           })}>
             <Image
               style={styles.imageMap}
@@ -174,7 +183,7 @@ export default class Home extends React.Component {
               source={require('../assets/icons/monument.png')}
             />
              <Text style={styles.text}>
-               Églises et Cathédrales
+               Monuments
              </Text>
           </TouchableOpacity>
         </ScrollView>

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, Dimensions, Platform } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, Dimensions, Platform, TouchableOpacity, Image } from 'react-native';
 import { Navigation } from 'react-navigation';
 import { Toolbar } from 'react-native-material-ui';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions'
+import * as Permissions from 'expo-permissions';
+import Home from '../Home/Home.js'
 
 export default class Map extends React.Component {
   constructor(props) {
@@ -105,7 +106,6 @@ export default class Map extends React.Component {
 
     if (this.props.navigation.state.params.eglise && this.state.eglise.length == 0) this._getEglise(); else if (!this.props.navigation.state.params.eglise && this.state.eglise.length != 0) this.setState({eglise: []});
   }
-
   render() {
     return (
       <View style={styles.container}>
@@ -164,8 +164,21 @@ export default class Map extends React.Component {
           { this.state.eglise.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
           </MapView>
         </View>
+        <TouchableOpacity style={styles.clean} onPress={() => this._test() }>
+          <Image style={styles.image} source={require('../assets/icons/corbeille.png')}/>
+        </TouchableOpacity>
       </View>
     );
+  }
+
+  _test() {
+    this.props.navigation.state.params.reset();
+    this.props.navigation.state.params.wifi = false;
+    this.props.navigation.state.params.pmr = false;
+    this.props.navigation.state.params.wc = false;
+    this.props.navigation.state.params.resto = false;
+    this.props.navigation.state.params.eglise = false;
+    this.setState({ wifi: [], pmr: [], wc: [], resto: [], eglise: [] });
   }
 }
 
@@ -187,5 +200,15 @@ const styles = StyleSheet.create({
   mapStyle: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-  }
+  },
+  clean: {
+    position: 'absolute',
+    flex: 1,
+    alignSelf: 'flex-end',
+    bottom:0
+  },
+  image: {
+    width: 50,
+    height: 50
+  },
 });

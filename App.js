@@ -21,6 +21,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.disableYellowBox = true;
     if (this.state.loading) {
       return <ActivityIndicator style={{
         position: 'absolute',

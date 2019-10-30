@@ -54,7 +54,7 @@ export default class Home extends React.Component {
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
           <Toolbar
-            leftElement="menu"
+            leftElement="map"
             onLeftElementPress={ () => {this.props.navigation.navigate('Map', {
               wifi: this.state.wifi,
               pmr: this.state.pmr,
@@ -92,7 +92,7 @@ export default class Home extends React.Component {
           <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map', {wifi: this.state.wifi, pmr: this.state.pmr, wc: this.state.wc})}>
             <Image
               style={styles.imageMap}
-              source={require('../assets/icons/map800.png')}
+              source={require('../assets/icons/map2.png')}
             />
           </TouchableOpacity>
 
@@ -187,6 +187,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     resizeMode: 'cover',
-    height: 140
+    height: 60
   },
 });

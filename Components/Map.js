@@ -94,7 +94,7 @@ export default class Map extends React.Component {
         <StatusBar backgroundColor="white" barStyle="light-content"/>
         <Toolbar
           navigation={this.props.navigation}
-          leftElement="menu"
+          leftElement="home"
           onLeftElementPress={ () => {this.props.navigation.navigate('Home')}}
           centerElement="NeversNow"
           style={{

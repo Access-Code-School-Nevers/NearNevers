@@ -1,10 +1,6 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Dimensions, Platform } from 'react-native';
-import { Constants } from 'expo';
-// You can import from local file
-// or any pure javascript modules available in npm
-import { Card } from 'react-native-paper';
-import { DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
+import { Text, View, StyleSheet, StatusBar, Dimensions, Platform } from 'react-native';
+import { Navigation } from 'react-navigation';
 import { Toolbar } from 'react-native-material-ui';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';

@@ -6,28 +6,37 @@ import Home1 from './Home/Home';
 import Nav from './navigation/Navigation.js';
 import { AppLoading } from 'react';
 import { Card } from 'react-native-paper';
+import * as Font from "expo-font";
+import { ActivityIndicator } from "react-native";
 import { createStackNavigator, createDrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
-import * as Font from 'expo-font';
+
 
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      loading: true
+    };
+  }
+
+  async componentWillMount() {
+    await Font.loadAsync({
+      Roboto: require("./assets/fonts/Roboto.ttf"),
+      Roboto_medium: require("./assets/fonts/Roboto-Medium.ttf"),
+    });
+    this.setState({ loading: false });
   }
 
   render() {
+    if (this.state.loading) {
+      return <ActivityIndicator />;
+    }
     return (
       <Nav />
     );
   }
 
-
-  componentDidMount() {
-   Font.loadAsync({
-     'Roboto': require('./assets/fonts/Roboto.ttf'),
-   });
- }
 
 }
 

@@ -62,7 +62,7 @@ export default class Home extends React.Component {
             })}}
             centerElement="NeversNow"
             style={{
-                container: { backgroundColor: '#302743' },
+                container: { backgroundColor: '#302743' ,height: 80 },
                 leftElement: { color: this.state.buttonLeftPressColor },
                 titleText: { color: this.state.inputColorSearch },
                 rightElement: { color: 'white' },

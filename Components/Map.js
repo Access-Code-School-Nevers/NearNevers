@@ -116,9 +116,9 @@ export default class Map extends React.Component {
           onLeftElementPress={ () => {this.props.navigation.navigate('Home')}}
           centerElement="Map"
           style={{
-            container: { backgroundColor: '#302743', height: 80},
+            container: { backgroundColor: '#302743', height: 60},
             leftElement: { color: this.state.buttonLeftPressColor },
-            titleText: { color: this.state.inputColorSearch },
+            titleText: { color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
             rightElement: { color: 'white'}
           }}
           searchable={{
@@ -129,14 +129,14 @@ export default class Map extends React.Component {
               this.setState({
                 buttonLeftPressColor: "white",
                 buttonSearchPress: false,
-                inputColorSearch: "white"
+                inputColorSearch: "white",
               });
             }},
             onSearchPressed: () => {if(this.state.buttonSearchPress == false){
               this.setState({
                 buttonSearchPress: true,
                 buttonLeftPressColor: "lightgrey",
-                inputColorSearch: "#302743"
+                inputColorSearch: "#302743",
               });
             }}
           }}
@@ -155,13 +155,16 @@ export default class Map extends React.Component {
 
           { this.state.pmr.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title='PMR' key={marker.id} pinColor={'#00aacd'}/> }) }
 
+
           { this.state.wc.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#ef5a27'}/> }) }
+
 
           { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#5d328f'}/> }) }
 
           { this.state.resto.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#ad54a0'}/> }) }
 
           { this.state.eglise.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
+
           </MapView>
         </View>
         <TouchableOpacity style={styles.clean} onPress={() => this._test() }>

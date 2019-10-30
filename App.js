@@ -12,6 +12,7 @@ export default class App extends React.Component {
     };
   }
 
+
   async componentWillMount() {
     await Font.loadAsync({
       Roboto: require("./assets/fonts/Roboto.ttf"),
@@ -19,6 +20,7 @@ export default class App extends React.Component {
     });
     this.setState({ loading: false });
   }
+
 
   render() {
     console.disableYellowBox = true;

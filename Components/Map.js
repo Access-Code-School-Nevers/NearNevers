@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import { Constants } from 'expo';
 // You can import from local file
 // or any pure javascript modules available in npm
@@ -113,16 +113,30 @@ export default class Map extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+<<<<<<< HEAD
         <StatusBar backgroundColor="white" barStyle="light-content"/>
         <Toolbar
+=======
+      {Platform.OS === 'ios' &&  <View style={{height: 16, backgroundColor: '#302743'}} />}
+         <Toolbar
+          navigation={this.props.navigation}
+>>>>>>> 84b2a874c160783c7a21b4777678fe2ba8906384
           leftElement="home"
           onLeftElementPress={ () => {this.props.navigation.navigate('Home')}}
-          centerElement="NeversNow"
+          centerElement="Map"
           style={{
+<<<<<<< HEAD
               container: { backgroundColor: '#302743', height: 80},
               leftElement: { color: this.state.buttonLeftPressColor },
               titleText: { color: this.state.inputColorSearch },
               rightElement: { color: 'white'}
+=======
+              container: { backgroundColor: '#302743' ,height: 60 },
+              leftElement: { color: this.state.buttonLeftPressColor },
+              titleText: { color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
+              rightElement: { color: 'white' },
+              padding: 0
+>>>>>>> 84b2a874c160783c7a21b4777678fe2ba8906384
           }}
           searchable={{
             color: "black",
@@ -152,18 +166,22 @@ export default class Map extends React.Component {
               latitude: 46.9896,
               longitude: 3.159,
               latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
+              longitudeDelta: 0.0421
             }}
           >
-          { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#FF0000'}/> }) }
+          { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#5D3190'}/> }) }
 
-          { this.state.pmr.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title='PMR' key={marker.id} pinColor={'#0000FF'}/> }) }
+          { this.state.pmr.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title='PMR' key={marker.id} pinColor={'#02AACD'}/> }) }
 
+<<<<<<< HEAD
           { this.state.wc.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#00FF00'}/> }) }
 
           { this.state.resto.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#FF8800'}/> }) }
 
           { this.state.eglise.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#88FF00'}/> }) }
+=======
+          { this.state.wc.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#EF5926'}/> }) }
+>>>>>>> 84b2a874c160783c7a21b4777678fe2ba8906384
           </MapView>
         </View>
       </View>

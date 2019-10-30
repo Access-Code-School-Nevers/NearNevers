@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry, InlineImage, SafeAreaView, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry, InlineImage, SafeAreaView, ScrollView, Platform } from 'react-native';
 import { Constants } from 'expo';
 import Map from '../Components/Map.js';
 import { Card } from 'react-native-paper';
@@ -80,7 +80,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
+      {Platform.OS === 'ios' &&  <View style={{height: 16, backgroundColor: '#302743'}} />}
           <Toolbar
             leftElement="map"
             onLeftElementPress={ () => {this.props.navigation.navigate('Map', {
@@ -90,11 +90,11 @@ export default class Home extends React.Component {
               resto: this.state.resto,
               eglise: this.state.eglise
             })}}
-            centerElement="NeversNow"
+            centerElement="Home"
             style={{
-                container: { backgroundColor: '#302743' ,height: 80 },
+                container: { backgroundColor: '#302743' ,height: 60, },
                 leftElement: { color: this.state.buttonLeftPressColor },
-                titleText: { color: this.state.inputColorSearch },
+                titleText: { color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
                 rightElement: { color: 'white' },
                 padding: 0
             }}
@@ -128,7 +128,7 @@ export default class Home extends React.Component {
           })}>
             <Image
               style={styles.imageMap}
-              source={require('../assets/icons/map800.png')}
+              source={require('../assets/icons/map2.png')}
             />
           </TouchableOpacity>
 
@@ -213,6 +213,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     resizeMode: 'cover',
-    height: 140
+    height: 60
   },
 });

@@ -96,7 +96,7 @@ export default class Map extends React.Component {
               latitude: 46.9896,
               longitude: 3.159,
               latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
+              longitudeDelta: 0.0421
             }}
           >
           </MapView>

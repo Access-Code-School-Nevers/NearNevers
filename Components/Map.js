@@ -22,7 +22,9 @@ export default class Map extends React.Component {
       errorMessage: null,
       wifi: [],
       pmr: [],
-      wc: []
+      wc: [],
+      resto: [],
+      eglise: []
     };
   }
   static navigationOptions = {
@@ -47,6 +49,18 @@ export default class Map extends React.Component {
       .then((responseJson) => { this.setState({wc: responseJson}) })
       .catch((error) => { console.error(error) });
   }
+  _getResto() {
+    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getResto', { headers: { "app": "neversNow" }})
+      .then((response) => { return response.json() })
+      .then((responseJson) => { this.setState({resto: responseJson}) })
+      .catch((error) => { console.error(error) });
+  }
+  _getEglise() {
+    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getEglise', { headers: { "app": "neversNow" }})
+      .then((response) => { return response.json() })
+      .then((responseJson) => { this.setState({eglise: responseJson}) })
+      .catch((error) => { console.error(error) });
+  }
 
   componentWillMount() {
     this._getLocationAsync();
@@ -56,6 +70,10 @@ export default class Map extends React.Component {
     if (this.props.navigation.state.params.pmr && this.state.pmr.length == 0) this._getPmr(); else if (!this.props.navigation.state.params.pmr && this.state.pmr.length != 0) this.setState({pmr: []});
 
     if (this.props.navigation.state.params.wc && this.state.wc.length == 0) this._getWc(); else if (!this.props.navigation.state.params.wc && this.state.wc.length != 0) this.setState({wc: []});
+
+    if (this.props.navigation.state.params.resto && this.state.resto.length == 0) this._getResto(); else if (!this.props.navigation.state.params.resto && this.state.resto.length != 0) this.setState({resto: []});
+
+    if (this.props.navigation.state.params.eglise && this.state.eglise.length == 0) this._getEglise(); else if (!this.props.navigation.state.params.eglise && this.state.eglise.length != 0) this.setState({eglise: []});
   }
 
   _getLocationAsync = async () => {
@@ -86,6 +104,10 @@ export default class Map extends React.Component {
     if (this.props.navigation.state.params.pmr && this.state.pmr.length == 0) this._getPmr(); else if (!this.props.navigation.state.params.pmr && this.state.pmr.length != 0) this.setState({pmr: []});
 
     if (this.props.navigation.state.params.wc && this.state.wc.length == 0) this._getWc(); else if (!this.props.navigation.state.params.wc && this.state.wc.length != 0) this.setState({wc: []});
+
+    if (this.props.navigation.state.params.resto && this.state.resto.length == 0) this._getResto(); else if (!this.props.navigation.state.params.resto && this.state.resto.length != 0) this.setState({resto: []});
+
+    if (this.props.navigation.state.params.eglise && this.state.eglise.length == 0) this._getEglise(); else if (!this.props.navigation.state.params.eglise && this.state.eglise.length != 0) this.setState({eglise: []});
   }
 
   render() {
@@ -93,16 +115,14 @@ export default class Map extends React.Component {
       <View style={styles.container}>
         <StatusBar backgroundColor="white" barStyle="light-content"/>
         <Toolbar
-          navigation={this.props.navigation}
-          leftElement="menu"
+          leftElement="home"
           onLeftElementPress={ () => {this.props.navigation.navigate('Home')}}
           centerElement="NeversNow"
           style={{
-              container: { backgroundColor: '#302743' },
+              container: { backgroundColor: '#302743', height: 80},
               leftElement: { color: this.state.buttonLeftPressColor },
               titleText: { color: this.state.inputColorSearch },
-              rightElement: { color: 'white' },
-              padding: 0
+              rightElement: { color: 'white'}
           }}
           searchable={{
             color: "black",
@@ -140,6 +160,10 @@ export default class Map extends React.Component {
           { this.state.pmr.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title='PMR' key={marker.id} pinColor={'#0000FF'}/> }) }
 
           { this.state.wc.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#00FF00'}/> }) }
+
+          { this.state.resto.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#FF8800'}/> }) }
+
+          { this.state.eglise.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#88FF00'}/> }) }
           </MapView>
         </View>
       </View>
@@ -165,5 +189,5 @@ const styles = StyleSheet.create({
   mapStyle: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-  },
+  }
 });

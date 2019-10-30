@@ -20,7 +20,9 @@ export default class Map extends React.Component {
       location : null,
       region: null,
       errorMessage: null,
-      wifi: []
+      wifi: [],
+      pmr: [],
+      wc: []
     };
   }
   static navigationOptions = {
@@ -33,10 +35,27 @@ export default class Map extends React.Component {
       .then((responseJson) => { this.setState({wifi: responseJson}) })
       .catch((error) => { console.error(error) });
   }
+  _getPmr() {
+    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getPmr', { headers: { "app": "neversNow" }})
+      .then((response) => { return response.json() })
+      .then((responseJson) => { this.setState({pmr: responseJson}) })
+      .catch((error) => { console.error(error) });
+  }
+  _getWc() {
+    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getWc', { headers: { "app": "neversNow" }})
+      .then((response) => { return response.json() })
+      .then((responseJson) => { this.setState({wc: responseJson}) })
+      .catch((error) => { console.error(error) });
+  }
 
   componentWillMount() {
     this._getLocationAsync();
+
     if (this.props.navigation.state.params.wifi && this.state.wifi.length == 0) this._getWifi(); else if (!this.props.navigation.state.params.wifi && this.state.wifi.length != 0) this.setState({wifi: []});
+
+    if (this.props.navigation.state.params.pmr && this.state.pmr.length == 0) this._getPmr(); else if (!this.props.navigation.state.params.pmr && this.state.pmr.length != 0) this.setState({pmr: []});
+
+    if (this.props.navigation.state.params.wc && this.state.wc.length == 0) this._getWc(); else if (!this.props.navigation.state.params.wc && this.state.wc.length != 0) this.setState({wc: []});
   }
 
   _getLocationAsync = async () => {
@@ -63,22 +82,20 @@ export default class Map extends React.Component {
 
   componentDidUpdate(){
     if (this.props.navigation.state.params.wifi && this.state.wifi.length == 0) this._getWifi(); else if (!this.props.navigation.state.params.wifi && this.state.wifi.length != 0) this.setState({wifi: []});
+
+    if (this.props.navigation.state.params.pmr && this.state.pmr.length == 0) this._getPmr(); else if (!this.props.navigation.state.params.pmr && this.state.pmr.length != 0) this.setState({pmr: []});
+
+    if (this.props.navigation.state.params.wc && this.state.wc.length == 0) this._getWc(); else if (!this.props.navigation.state.params.wc && this.state.wc.length != 0) this.setState({wc: []});
   }
 
   render() {
-
-    {/*
-      Appeller _getWifi si this.props.navigation.state.params.wifi = true
-      Sinon vider le tableau wifi: this.setState({wifi: []})
-    */}
-
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="white" barStyle="light-content"/>
         <Toolbar
           navigation={this.props.navigation}
           leftElement="menu"
-          onLeftElementPress={ () => {this.props.navigation.toggleDrawer()}}
+          onLeftElementPress={ () => {this.props.navigation.navigate('Home')}}
           centerElement="NeversNow"
           style={{
               container: { backgroundColor: '#302743' },
@@ -118,7 +135,11 @@ export default class Map extends React.Component {
               longitudeDelta: 0.0421
             }}
           >
-          { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id}/> }) }
+          { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#FF0000'}/> }) }
+
+          { this.state.pmr.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title='PMR' key={marker.id} pinColor={'#0000FF'}/> }) }
+
+          { this.state.wc.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#00FF00'}/> }) }
           </MapView>
         </View>
       </View>

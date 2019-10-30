@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Nav from './navigation/Navigation.js';
-import { Card } from 'react-native-paper';
-
 import * as Font from "expo-font";
 import { ActivityIndicator } from "react-native";
 
@@ -42,10 +40,7 @@ export default class App extends React.Component {
   }
 }
 
-
-
 const styles = StyleSheet.create({
 	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 	header: { padding: 15, paddingTop: 22 },
-
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry, InlineImage, SafeAreaView, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry, InlineImage, SafeAreaView, ScrollView, Platform } from 'react-native';
 import { Constants } from 'expo';
 import Map from '../Components/Map.js';
 import { Card } from 'react-native-paper';
@@ -52,19 +52,19 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
+      {Platform.OS === 'ios' &&  <View style={{height: 16, backgroundColor: '#302743'}} />}
           <Toolbar
-            leftElement="menu"
+            leftElement="map"
             onLeftElementPress={ () => {this.props.navigation.navigate('Map', {
               wifi: this.state.wifi,
               pmr: this.state.pmr,
               wc: this.state.wc
             })}}
-            centerElement="NeversNow"
+            centerElement="Home"
             style={{
-                container: { backgroundColor: '#302743' ,height: 80 },
+                container: { backgroundColor: '#302743' ,height: 60, },
                 leftElement: { color: this.state.buttonLeftPressColor },
-                titleText: { color: this.state.inputColorSearch },
+                titleText: { color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
                 rightElement: { color: 'white' },
                 padding: 0
             }}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import { Constants } from 'expo';
 // You can import from local file
 // or any pure javascript modules available in npm
@@ -91,16 +91,16 @@ export default class Map extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="white" barStyle="light-content"/>
-        <Toolbar
+      {Platform.OS === 'ios' &&  <View style={{height: 16, backgroundColor: '#302743'}} />}
+         <Toolbar
           navigation={this.props.navigation}
-          leftElement="menu"
+          leftElement="home"
           onLeftElementPress={ () => {this.props.navigation.navigate('Home')}}
-          centerElement="NeversNow"
+          centerElement="Map"
           style={{
-              container: { backgroundColor: '#302743' },
+              container: { backgroundColor: '#302743' ,height: 60 },
               leftElement: { color: this.state.buttonLeftPressColor },
-              titleText: { color: this.state.inputColorSearch },
+              titleText: { color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
               rightElement: { color: 'white' },
               padding: 0
           }}

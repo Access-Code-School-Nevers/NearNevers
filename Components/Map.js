@@ -120,9 +120,9 @@ export default class Map extends React.Component {
           onLeftElementPress={ () => {this.props.navigation.navigate('Home')}}
           centerElement="Map"
           style={{
-            container: { backgroundColor: '#302743', height: 80},
+            container: { backgroundColor: '#302743', height: 60},
             leftElement: { color: this.state.buttonLeftPressColor },
-            titleText: { color: this.state.inputColorSearch },
+            titleText: { color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
             rightElement: { color: 'white'}
           }}
           searchable={{

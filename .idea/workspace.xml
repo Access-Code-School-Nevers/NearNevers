@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12fcc2a2-5501-4a7b-ba2c-ef03e1d23db3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/MenuDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/MenuDrawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/Roboto-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Home/Home.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +15,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="1200" />
     <option name="height" value="646" />
   </component>
@@ -53,7 +50,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1200" height="646" extended-state="1" />
+    <frame x="-7" y="0" width="1200" height="646" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info id="Project" order="1" />

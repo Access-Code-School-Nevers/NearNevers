@@ -1,7 +1,9 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "rnpm": {
-    "assets": ["./assets/fonts/"]
+    "assets": [
+      "./assets/fonts/"
+    ]
   },
   "scripts": {
     "start": "expo start",

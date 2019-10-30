@@ -36,12 +36,6 @@ export default class MenuDrawer extends React.Component {
           <View style={styles.links}>
             {this.navLink('Home', 'Accueil')}
           </View>
-          <View style={styles.links}>
-            {this.navLink('Map', 'Carte')}
-          </View>
-          <View style={styles.links}>
-            {this.navLink('Paramètres', 'Paramètres')}
-          </View>
         </View>
         <View style={styles.footer}>
           <Text style={styles.description}>Nevers Now</Text>

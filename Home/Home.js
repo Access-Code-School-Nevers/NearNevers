@@ -1,9 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, AppRegistry, InlineImage, SafeAreaView, ScrollView, Platform } from 'react-native';
-import { Constants } from 'expo';
-import Map from '../Components/Map.js';
-import { Card } from 'react-native-paper';
-import { createStackNavigator, DrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity, Image, ScrollView, Platform } from 'react-native';
 import { Toolbar, COLOR } from 'react-native-material-ui';
 
 

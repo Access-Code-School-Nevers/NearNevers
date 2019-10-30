@@ -134,7 +134,7 @@ export default class Home extends React.Component {
               source={require('../assets/icons/handiaccess.png')}
             />
             <Text style={styles.text}>
-               Place de parking PMR
+               Places de parking PMR
              </Text>
           </TouchableOpacity>
 

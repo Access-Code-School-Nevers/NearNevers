@@ -20,11 +20,19 @@ export default class Map extends React.Component {
       location : null,
       region: null,
       errorMessage: null,
+      wifi: []
     };
   }
   static navigationOptions = {
     drawerLabel: 'Map',
   };
+
+  _getWifi() {
+    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getWifi', { headers: { "app": "neversNow" }})
+      .then((response) => { return response.json() })
+      .then((responseJson) => { this.setState({wifi: responseJson}) })
+      .catch((error) => { console.error(error) });
+  }
 
   componentWillMount() {
     this._getLocationAsync();
@@ -53,6 +61,12 @@ export default class Map extends React.Component {
   };
 
   render() {
+
+    {/*
+      Appeller _getWifi si this.props.navigation.state.params.wifi = true
+      Sinon vider le tableau wifi: this.setState({wifi: []})
+    */}
+
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="white" barStyle="light-content"/>
@@ -99,6 +113,7 @@ export default class Map extends React.Component {
               longitudeDelta: 0.0421
             }}
           >
+          { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id}/> }) }
           </MapView>
         </View>
       </View>

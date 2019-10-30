@@ -34,6 +34,14 @@ yarn add react-native-material-ui
 ```bash
 npm install --save react-native-vector-icons
 ```
+3. react-native-maps
+```bash
+xpo install react-native-maps
+```
+4. expo-location
+```bash
+expo install expo-location
+```
 
 ## Contributeur
 

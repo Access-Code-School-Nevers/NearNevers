@@ -6,8 +6,10 @@ import Home1 from './Home/Home';
 import Nav from './navigation/Navigation.js';
 import { AppLoading } from 'react';
 import { Card } from 'react-native-paper';
+
 import * as Font from "expo-font";
 import { ActivityIndicator } from "react-native";
+
 import { createStackNavigator, createDrawerNavigator, DrawerItems, Navigation } from 'react-navigation';
 
 
@@ -20,6 +22,7 @@ export default class App extends React.Component {
     };
   }
 
+
   async componentWillMount() {
     await Font.loadAsync({
       Roboto: require("./assets/fonts/Roboto.ttf"),
@@ -27,6 +30,7 @@ export default class App extends React.Component {
     });
     this.setState({ loading: false });
   }
+
 
   render() {
     if (this.state.loading) {
@@ -36,8 +40,6 @@ export default class App extends React.Component {
       <Nav />
     );
   }
-
-
 }
 
 

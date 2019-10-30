@@ -22,7 +22,7 @@ export default class Map extends React.Component {
       errorMessage: null,
       wifi: [],
       pmr: [],
-      wc: []
+      wc: [],
     };
   }
   static navigationOptions = {
@@ -100,7 +100,7 @@ export default class Map extends React.Component {
           style={{
               container: { backgroundColor: '#302743' ,height: 60 },
               leftElement: { color: this.state.buttonLeftPressColor },
-              titleText: { color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
+              titleText: { color: this.state.inputColorSearch, width:"100%", letterSpacing: 1.6},
               rightElement: { color: 'white' },
               padding: 0
           }}
@@ -112,14 +112,14 @@ export default class Map extends React.Component {
               this.setState({
                 buttonLeftPressColor: "white",
                 buttonSearchPress: false,
-                inputColorSearch: "white"
+                inputColorSearch: "white",
               });
             }},
             onSearchPressed: () => {if(this.state.buttonSearchPress == false){
               this.setState({
                 buttonSearchPress: true,
                 buttonLeftPressColor: "lightgrey",
-                inputColorSearch: "#302743"
+                inputColorSearch: "#302743",
               });
             }}
           }}

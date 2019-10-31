@@ -168,7 +168,7 @@ export default class Map extends React.Component {
           </MapView>
         </View>
         <TouchableOpacity style={styles.clean} onPress={() => this._test() }>
-          <Image style={styles.image} source={require('../assets/icons/corbeille.png')}/>
+          <Image style={styles.image} source={require('../assets/icons/remove-location.png')}/>
         </TouchableOpacity>
       </View>
     );
@@ -208,7 +208,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     flex: 1,
     alignSelf: 'flex-end',
-    bottom:0
+    bottom:0,
+    padding: 16
   },
   image: {
     width: 50,

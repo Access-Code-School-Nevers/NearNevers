@@ -108,26 +108,11 @@ export default class Home extends React.Component {
                 rightElement: { color: 'white' },
                 padding: 0
             }}
+            rightElement=<Image
+            style={styles.logotop}
+              source={require('../assets/icons/logo_white.png')}
+            />
 
-            searchable={{
-              color: "black",
-              autoFocus: true,
-              placeholder: 'Rechercher',
-              onSearchClosed: () => {if (this.state.buttonSearchPress == true){
-                this.setState({
-                  buttonLeftPressColor: "white",
-                  buttonSearchPress: false,
-                  inputColorSearch: "white",
-                });
-              }},
-              onSearchPressed: () => {if(this.state.buttonSearchPress == false){
-                this.setState({
-                  buttonSearchPress: true,
-                  buttonLeftPressColor: "lightgrey",
-                  inputColorSearch: "#302743",
-                });
-              }}
-            }}
           />
         <ScrollView>
           <TouchableOpacity style={styles.containerImg} onPress={() => this.props.navigation.navigate('Map', {
@@ -228,4 +213,9 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     height: 60
   },
+  logotop: {
+    width: 35,
+    height: 35,
+    marginRight:15
+  }
 });

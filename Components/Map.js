@@ -6,7 +6,7 @@ import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import Home from '../Home/Home.js';
-import ActionButton from 'react-native-action-button';
+// import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Map extends React.Component {
@@ -32,7 +32,6 @@ export default class Map extends React.Component {
   static navigationOptions = {
     drawerLabel: 'Map',
   };
-
 
   _getWifi() {
     return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getWifi', { headers: { "app": "neversNow" }})
@@ -209,9 +208,7 @@ export default class Map extends React.Component {
 
           { this.state.pmr.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title='PMR' key={marker.id} pinColor={'#00aacd'}/> }) }
 
-
           { this.state.wc.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#ef5a27'}/> }) }
-
 
           { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#5d328f'}/> }) }
 
@@ -224,8 +221,11 @@ export default class Map extends React.Component {
           { this.state.smonu.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
 
           </MapView>
-          <ActionButton style={styles.containerButtonFloat} buttonColor="#5d328f">
-            <ActionButton.Item buttonColor='#00aacd' title="Parking PMR" onPress={() =>{}}>
+          {/*}<ActionButton style={styles.containerButtonFloat} buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
+            <Icon name="md-create" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {}}>
             <Icon name="md-notifications-off" style={styles.actionButtonIcon} />
             </ActionButton.Item>
             <ActionButton.Item buttonColor='#ef5a27' title="Toilettes" onPress={() => {}}>
@@ -233,14 +233,8 @@ export default class Map extends React.Component {
             </ActionButton.Item>
             <ActionButton.Item buttonColor='#5d328f' title="Wifi" onPress={() => {}}>
             <Icon name="md-done-all" style={styles.actionButtonIcon} />
-            </ActionButton.Item>
-            <ActionButton.Item buttonColor='#ad54a0' title="Restaurant" onPress={() => {}}>
-            <Icon name="md-create" style={styles.actionButtonIcon} />
-            </ActionButton.Item>
-            <ActionButton.Item buttonColor='#73bf46' title="Monuments" onPress={() => {}}>
-              <Icon name="md-done-all" style={styles.actionButtonIcon} />
-            </ActionButton.Item>
-          </ActionButton>
+          </ActionButton.Item>
+        </ActionButton>*/}
 
         </View>
         <TouchableOpacity style={styles.clean} onPress={() => this._clean() }>

@@ -23,7 +23,10 @@ export default class Map extends React.Component {
       pmr: [],
       wc: [],
       resto: [],
-      eglise: []
+      monu: [],
+      smonu: [],
+      sresto: [],
+      search: ''
     };
   }
   static navigationOptions = {
@@ -50,16 +53,31 @@ export default class Map extends React.Component {
       .catch((error) => { console.error(error) });
   }
   _getResto() {
+    this.setState({sresto: []});
     return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getResto', { headers: { "app": "neversNow" }})
       .then((response) => { return response.json() })
       .then((responseJson) => { this.setState({resto: responseJson}) })
       .catch((error) => { console.error(error) });
   }
-  _getEglise() {
-    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getEglise', { headers: { "app": "neversNow" }})
+  _getMonu() {
+    this.setState({smonu: []});
+    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getMonu', { headers: { "app": "neversNow" }})
       .then((response) => { return response.json() })
-      .then((responseJson) => { this.setState({eglise: responseJson}) })
+      .then((responseJson) => { this.setState({monu: responseJson}) })
       .catch((error) => { console.error(error) });
+  }
+
+  _searchMonu(){
+    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getSearchMonu?search=' + this.state.search, { headers: { "app": "neversNow" }})
+        .then((response) => { return response.json() })
+        .then((responseJson) => { this.setState({smonu: responseJson}) })
+        .catch((error) => { console.error(error) });
+  }
+  _searchResto(){
+    return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getSearchResto?search=' + this.state.search, { headers: { "app": "neversNow" }})
+        .then((response) => { return response.json() })
+        .then((responseJson) => { this.setState({sresto: responseJson}) })
+        .catch((error) => { console.error(error) });
   }
 
   componentWillMount() {
@@ -73,7 +91,7 @@ export default class Map extends React.Component {
 
     if (this.props.navigation.state.params.resto && this.state.resto.length == 0) this._getResto(); else if (!this.props.navigation.state.params.resto && this.state.resto.length != 0) this.setState({resto: []});
 
-    if (this.props.navigation.state.params.eglise && this.state.eglise.length == 0) this._getEglise(); else if (!this.props.navigation.state.params.eglise && this.state.eglise.length != 0) this.setState({eglise: []});
+    if (this.props.navigation.state.params.monu && this.state.monu.length == 0) this._getMonu(); else if (!this.props.navigation.state.params.monu && this.state.monu.length != 0) this.setState({monu: []});
   }
 
   _getLocationAsync = async () => {
@@ -107,7 +125,7 @@ export default class Map extends React.Component {
 
     if (this.props.navigation.state.params.resto && this.state.resto.length == 0) this._getResto(); else if (!this.props.navigation.state.params.resto && this.state.resto.length != 0) this.setState({resto: []});
 
-    if (this.props.navigation.state.params.eglise && this.state.eglise.length == 0) this._getEglise(); else if (!this.props.navigation.state.params.eglise && this.state.eglise.length != 0) this.setState({eglise: []});
+    if (this.props.navigation.state.params.monu && this.state.monu.length == 0) this._getMonu(); else if (!this.props.navigation.state.params.monu && this.state.monu.length != 0) this.setState({monu: []});
   }
   render() {
     const actions = [
@@ -147,13 +165,20 @@ export default class Map extends React.Component {
           style={{
             container: { backgroundColor: '#302743', height: 60},
             leftElement: { color: this.state.buttonLeftPressColor },
-            titleText: { color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
+            titleText: {  color: this.state.inputColorSearch, letterSpacing: 1.6, alignSelf: 'center' },
             rightElement: { color: 'white'}
           }}
           searchable={{
             color: "black",
             autoFocus: true,
             placeholder: 'Rechercher',
+            onSubmitEditing:() => {
+              this._clean();
+              this._searchMonu();
+              this._searchResto();
+              this.props.navigation.state.params.search();
+            },
+            onChangeText: (text) => { this.setState({search: text})},
             onSearchClosed: () => {if (this.state.buttonSearchPress == true){
               this.setState({
                 buttonLeftPressColor: "white",
@@ -192,7 +217,12 @@ export default class Map extends React.Component {
 
           { this.state.resto.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#ad54a0'}/> }) }
 
-          { this.state.eglise.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
+          { this.state.monu.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
+
+          { this.state.sresto.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#ad54a0'}/> }) }
+
+          { this.state.smonu.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
+
           </MapView>
           <ActionButton style={styles.containerButtonFloat} buttonColor="rgba(231,76,60,1)">
           <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
@@ -207,20 +237,18 @@ export default class Map extends React.Component {
         </ActionButton>
 
         </View>
-        <TouchableOpacity style={styles.clean} onPress={() => this._clean() }>
-        </TouchableOpacity>
       </View>
     );
   }
 
-  _test() {
+  _clean() {
     this.props.navigation.state.params.reset();
     this.props.navigation.state.params.wifi = false;
     this.props.navigation.state.params.pmr = false;
     this.props.navigation.state.params.wc = false;
     this.props.navigation.state.params.resto = false;
-    this.props.navigation.state.params.eglise = false;
-    this.setState({ wifi: [], pmr: [], wc: [], resto: [], eglise: [] });
+    this.props.navigation.state.params.monu = false;
+    this.setState({ wifi: [], pmr: [], wc: [], resto: [], monu: [], sresto: [], smonu: [] });
   }
 }
 
@@ -260,7 +288,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     flex: 1,
     alignSelf: 'flex-end',
-    bottom:0
+    bottom:0,
+    padding: 16
   },
   image: {
     width: 50,

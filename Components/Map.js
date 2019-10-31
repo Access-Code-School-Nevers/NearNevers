@@ -224,19 +224,28 @@ export default class Map extends React.Component {
           { this.state.smonu.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
 
           </MapView>
-          <ActionButton style={styles.containerButtonFloat} buttonColor="rgba(231,76,60,1)">
-          <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
-            <Icon name="md-create" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
-          <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {}}>
+          <ActionButton style={styles.containerButtonFloat} buttonColor="#5d328f">
+            <ActionButton.Item buttonColor='#00aacd' title="Parking PMR" onPress={() => this._activePmr()}>
             <Icon name="md-notifications-off" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
-          <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {}}>
+            </ActionButton.Item>
+            <ActionButton.Item buttonColor='#ef5a27' title="Toilettes" onPress={() => {}}>
             <Icon name="md-done-all" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
-        </ActionButton>
+            </ActionButton.Item>
+            <ActionButton.Item buttonColor='#5d328f' title="Wifi" onPress={() => {}}>
+            <Icon name="md-done-all" style={styles.actionButtonIcon} />
+            </ActionButton.Item>
+            <ActionButton.Item buttonColor='#ad54a0' title="Restaurant" onPress={() => {}}>
+            <Icon name="md-create" style={styles.actionButtonIcon} />
+            </ActionButton.Item>
+            <ActionButton.Item buttonColor='#73bf46' title="Monuments" onPress={() => {}}>
+              <Icon name="md-done-all" style={styles.actionButtonIcon} />
+            </ActionButton.Item>
+          </ActionButton>
 
         </View>
+        <TouchableOpacity style={styles.clean} onPress={() => this._clean() }>
+          <Image style={styles.image} source={require('../assets/icons/remove-location.png')}/>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -259,11 +268,12 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   containerButtonFloat:{
-    bottom: 80,
+    bottom: 125,
     flex: 1,
+    alignSelf: 'flex-end',
     position: "absolute",
-    right: 0,
-    zIndex: 2
+    right: -15,
+    zIndex: 2,
   },
   container: {
     flex: 1,
@@ -295,11 +305,4 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50
   },
-  buttonFloat: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    alignSelf: "flex-end",
-
-  }
 });

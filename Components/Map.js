@@ -6,7 +6,7 @@ import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import Home from '../Home/Home.js';
-import ActionButton from 'react-native-action-button';
+// import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Map extends React.Component {
@@ -32,7 +32,6 @@ export default class Map extends React.Component {
   static navigationOptions = {
     drawerLabel: 'Map',
   };
-
 
   _getWifi() {
     return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getWifi', { headers: { "app": "neversNow" }})
@@ -209,9 +208,7 @@ export default class Map extends React.Component {
 
           { this.state.pmr.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title='PMR' key={marker.id} pinColor={'#00aacd'}/> }) }
 
-
           { this.state.wc.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#ef5a27'}/> }) }
-
 
           { this.state.wifi.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.longitude), longitude: Number(marker.latitude)}} title={marker.rue} key={marker.id} pinColor={'#5d328f'}/> }) }
 
@@ -224,7 +221,7 @@ export default class Map extends React.Component {
           { this.state.smonu.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
 
           </MapView>
-          <ActionButton style={styles.containerButtonFloat} buttonColor="rgba(231,76,60,1)">
+          {/*}<ActionButton style={styles.containerButtonFloat} buttonColor="rgba(231,76,60,1)">
           <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
             <Icon name="md-create" style={styles.actionButtonIcon} />
           </ActionButton.Item>
@@ -234,7 +231,7 @@ export default class Map extends React.Component {
           <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {}}>
             <Icon name="md-done-all" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-        </ActionButton>
+        </ActionButton>*/}
 
         </View>
       </View>

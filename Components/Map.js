@@ -7,6 +7,7 @@ import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import Home from '../Home/Home.js'
 
+
 export default class Map extends React.Component {
   constructor(props) {
     super(props);

@@ -196,7 +196,7 @@ export default class Map extends React.Component {
 
           </MapView>
         </View>
-        <TouchableOpacity style={styles.clean} onPress={() => this._test() }>
+        <TouchableOpacity style={styles.clean} onPress={() => this._clean() }>
           <Image style={styles.image} source={require('../assets/icons/remove-location.png')}/>
         </TouchableOpacity>
       </View>

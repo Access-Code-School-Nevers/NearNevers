@@ -5,7 +5,9 @@ import { Toolbar } from 'react-native-material-ui';
 import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import Home from '../Home/Home.js'
+import Home from '../Home/Home.js';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Map extends React.Component {
   constructor(props) {
@@ -27,6 +29,7 @@ export default class Map extends React.Component {
   static navigationOptions = {
     drawerLabel: 'Map',
   };
+
 
   _getWifi() {
     return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getWifi', { headers: { "app": "neversNow" }})
@@ -107,6 +110,32 @@ export default class Map extends React.Component {
     if (this.props.navigation.state.params.eglise && this.state.eglise.length == 0) this._getEglise(); else if (!this.props.navigation.state.params.eglise && this.state.eglise.length != 0) this.setState({eglise: []});
   }
   render() {
+    const actions = [
+  {
+    text: "Accessibility",
+    icon: require("../assets/icons/banc.png"),
+    name: "bt_accessibility",
+    position: 2
+  },
+  {
+    text: "Language",
+    icon: require("../assets/icons/banc.png"),
+    name: "bt_language",
+    position: 1
+  },
+  {
+    text: "Location",
+    icon: require("../assets/icons/banc.png"),
+    name: "bt_room",
+    position: 3
+  },
+  {
+    text: "Video",
+    icon: require("../assets/icons/banc.png"),
+    name: "bt_videocam",
+    position: 4
+  }
+];
     return (
       <View style={styles.container}>
       {Platform.OS === 'ios' &&  <View style={{height: 16, backgroundColor: '#302743'}} />}
@@ -164,11 +193,21 @@ export default class Map extends React.Component {
           { this.state.resto.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#ad54a0'}/> }) }
 
           { this.state.eglise.map(marker => { return <MapView.Marker coordinate={{latitude: Number(marker.latitude), longitude: Number(marker.longitude)}} title={marker.nom} key={marker.id} pinColor={'#73bf46'}/> }) }
-
           </MapView>
+          <ActionButton style={styles.containerButtonFloat} buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
+            <Icon name="md-create" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {}}>
+            <Icon name="md-notifications-off" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {}}>
+            <Icon name="md-done-all" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+        </ActionButton>
+
         </View>
-        <TouchableOpacity style={styles.clean} onPress={() => this._test() }>
-          <Image style={styles.image} source={require('../assets/icons/corbeille.png')}/>
+        <TouchableOpacity style={styles.clean} onPress={() => this._clean() }>
         </TouchableOpacity>
       </View>
     );
@@ -186,6 +225,18 @@ export default class Map extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
+  containerButtonFloat:{
+    bottom: 80,
+    flex: 1,
+    position: "absolute",
+    right: 0,
+    zIndex: 2
+  },
   container: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
@@ -203,6 +254,7 @@ const styles = StyleSheet.create({
   mapStyle: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
+    zIndex: -1
   },
   clean: {
     position: 'absolute',
@@ -214,4 +266,11 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50
   },
+  buttonFloat: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    alignSelf: "flex-end",
+
+  }
 });

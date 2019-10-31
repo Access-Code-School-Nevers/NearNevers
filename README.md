@@ -42,6 +42,14 @@ xpo install react-native-maps
 ```bash
 expo install expo-location
 ```
+5. Material-UI
+```bash
+yarn add @material-ui/core
+```
+6. SVG Icons
+```bash
+yarn add @material-ui/icons
+```
 
 ## Contributeur
 

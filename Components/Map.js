@@ -26,6 +26,18 @@ export default class Map extends React.Component {
       sresto: [],
       search: ''
     };
+
+    this._getLocationAsync();
+
+    if (this.props.navigation.state.params.wifi && this.state.wifi.length == 0) this._getWifi(); else if (!this.props.navigation.state.params.wifi && this.state.wifi.length != 0) this.setState({wifi: []});
+
+    if (this.props.navigation.state.params.pmr && this.state.pmr.length == 0) this._getPmr(); else if (!this.props.navigation.state.params.pmr && this.state.pmr.length != 0) this.setState({pmr: []});
+
+    if (this.props.navigation.state.params.wc && this.state.wc.length == 0) this._getWc(); else if (!this.props.navigation.state.params.wc && this.state.wc.length != 0) this.setState({wc: []});
+
+    if (this.props.navigation.state.params.resto && this.state.resto.length == 0) this._getResto(); else if (!this.props.navigation.state.params.resto && this.state.resto.length != 0) this.setState({resto: []});
+
+    if (this.props.navigation.state.params.monu && this.state.monu.length == 0) this._getMonu(); else if (!this.props.navigation.state.params.monu && this.state.monu.length != 0) this.setState({monu: []});
   }
   static navigationOptions = {
     drawerLabel: 'Map',
@@ -50,17 +62,19 @@ export default class Map extends React.Component {
       .catch((error) => { console.error(error) });
   }
   _getResto() {
-    this.setState({sresto: []});
     return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getResto', { headers: { "app": "neversNow" }})
       .then((response) => { return response.json() })
-      .then((responseJson) => { this.setState({resto: responseJson}) })
+      .then((responseJson) => {
+        this.setState({resto: responseJson, sresto: []})
+      })
       .catch((error) => { console.error(error) });
   }
   _getMonu() {
-    this.setState({smonu: []});
     return fetch('https://thomasg.promo-29.codeur.online/apiNeversNow/public/getMonu', { headers: { "app": "neversNow" }})
       .then((response) => { return response.json() })
-      .then((responseJson) => { this.setState({monu: responseJson}) })
+      .then((responseJson) => {
+        this.setState({monu: responseJson, smonu: []});
+      })
       .catch((error) => { console.error(error) });
   }
 
@@ -75,20 +89,6 @@ export default class Map extends React.Component {
         .then((response) => { return response.json() })
         .then((responseJson) => { this.setState({sresto: responseJson}) })
         .catch((error) => { console.error(error) });
-  }
-
-  componentWillMount() {
-    this._getLocationAsync();
-
-    if (this.props.navigation.state.params.wifi && this.state.wifi.length == 0) this._getWifi(); else if (!this.props.navigation.state.params.wifi && this.state.wifi.length != 0) this.setState({wifi: []});
-
-    if (this.props.navigation.state.params.pmr && this.state.pmr.length == 0) this._getPmr(); else if (!this.props.navigation.state.params.pmr && this.state.pmr.length != 0) this.setState({pmr: []});
-
-    if (this.props.navigation.state.params.wc && this.state.wc.length == 0) this._getWc(); else if (!this.props.navigation.state.params.wc && this.state.wc.length != 0) this.setState({wc: []});
-
-    if (this.props.navigation.state.params.resto && this.state.resto.length == 0) this._getResto(); else if (!this.props.navigation.state.params.resto && this.state.resto.length != 0) this.setState({resto: []});
-
-    if (this.props.navigation.state.params.monu && this.state.monu.length == 0) this._getMonu(); else if (!this.props.navigation.state.params.monu && this.state.monu.length != 0) this.setState({monu: []});
   }
 
   _getLocationAsync = async () => {
@@ -124,33 +124,8 @@ export default class Map extends React.Component {
 
     if (this.props.navigation.state.params.monu && this.state.monu.length == 0) this._getMonu(); else if (!this.props.navigation.state.params.monu && this.state.monu.length != 0) this.setState({monu: []});
   }
+
   render() {
-    const actions = [
-  {
-    text: "Accessibility",
-    icon: require("../assets/icons/banc.png"),
-    name: "bt_accessibility",
-    position: 2
-  },
-  {
-    text: "Language",
-    icon: require("../assets/icons/banc.png"),
-    name: "bt_language",
-    position: 1
-  },
-  {
-    text: "Location",
-    icon: require("../assets/icons/banc.png"),
-    name: "bt_room",
-    position: 3
-  },
-  {
-    text: "Video",
-    icon: require("../assets/icons/banc.png"),
-    name: "bt_videocam",
-    position: 4
-  }
-];
     return (
       <View style={styles.container}>
       {Platform.OS === 'ios' &&  <View style={{height: 16, backgroundColor: '#302743'}} />}

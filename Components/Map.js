@@ -6,8 +6,6 @@ import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import Home from '../Home/Home.js';
-// import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Map extends React.Component {
   constructor(props) {
@@ -235,7 +233,6 @@ export default class Map extends React.Component {
             <Icon name="md-done-all" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>*/}
-
         </View>
         <TouchableOpacity style={styles.clean} onPress={() => this._clean() }>
           <Image style={styles.image} source={require('../assets/icons/remove-location.png')}/>
@@ -260,14 +257,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     height: 22,
     color: 'white',
-  },
-  containerButtonFloat:{
-    bottom: 125,
-    flex: 1,
-    alignSelf: 'flex-end',
-    position: "absolute",
-    right: -15,
-    zIndex: 2,
   },
   container: {
     flex: 1,
@@ -298,5 +287,5 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50
-  },
+  }
 });

@@ -7,19 +7,18 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonSearchPress: false,
       buttonLeftPressColor: "white",
       inputColorSearch: "white",
       wifi: false,
       pmr: false,
       wc: false,
       resto: false,
-      eglise: false
-
+      monu: false
     };
   }
 
-  resetAll = () => { this.setState({wifi: false,  pmr: false, wc: false, resto: false, eglise: false}) }
+  resetAll = () => { this.setState({wifi: false,  pmr: false, wc: false, resto: false, monu: false}) }
+  search = () => { this.setState({wifi: false,  pmr: false, wc: false, resto: true, monu: true}) }
 
   _activeWifi() {
     this.setState({wifi: !this.state.wifi});
@@ -28,8 +27,9 @@ export default class Home extends React.Component {
       pmr: this.state.pmr,
       wc: this.state.wc,
       resto: this.state.resto,
-      eglise: this.state.eglise,
-      reset: this.resetAll.bind(this)
+      monu: this.state.monu,
+      reset: this.resetAll.bind(this),
+      search: this.search.bind(this)
     });
   }
   _activePmr() {
@@ -39,8 +39,9 @@ export default class Home extends React.Component {
       pmr: !this.state.pmr,
       wc: this.state.wc,
       resto: this.state.resto,
-      eglise: this.state.eglise,
-      reset: this.resetAll.bind(this)
+      monu: this.state.monu,
+      reset: this.resetAll.bind(this),
+      search: this.search.bind(this)
     })
   }
   _activeWc() {
@@ -50,8 +51,9 @@ export default class Home extends React.Component {
       pmr: this.state.pmr,
       wc: !this.state.wc,
       resto: this.state.resto,
-      eglise: this.state.eglise,
-      reset: this.resetAll.bind(this)
+      monu: this.state.monu,
+      reset: this.resetAll.bind(this),
+      search: this.search.bind(this)
     })
   }
   _activeResto() {
@@ -61,19 +63,21 @@ export default class Home extends React.Component {
       pmr: this.state.pmr,
       wc: this.state.wc,
       resto: !this.state.resto,
-      eglise: this.state.eglise,
-      reset: this.resetAll.bind(this)
+      monu: this.state.monu,
+      reset: this.resetAll.bind(this),
+      search: this.search.bind(this)
     })
   }
-  _activeEglise() {
-    this.setState({eglise: !this.state.eglise});
+  _activeMonu() {
+    this.setState({monu: !this.state.monu});
     this.props.navigation.navigate('Map', {
       wifi: this.state.wifi,
       pmr: this.state.pmr,
       wc: this.state.wc,
       resto: this.state.resto,
-      eglise: !this.state.eglise,
-      reset: this.resetAll.bind(this)
+      monu: !this.state.monu,
+      reset: this.resetAll.bind(this),
+      search: this.search.bind(this)
     })
   }
 
@@ -92,8 +96,9 @@ export default class Home extends React.Component {
               pmr: this.state.pmr,
               wc: this.state.wc,
               resto: this.state.resto,
-              eglise: this.state.eglise,
-              reset: this.resetAll.bind(this)
+              monu: this.state.monu,
+              reset: this.resetAll.bind(this),
+              search: this.search.bind(this)
             })}}
             centerElement="Home"
             style={{
@@ -103,6 +108,7 @@ export default class Home extends React.Component {
                 rightElement: { color: 'white' },
                 padding: 0
             }}
+
             searchable={{
               color: "black",
               autoFocus: true,
@@ -129,8 +135,9 @@ export default class Home extends React.Component {
             pmr: this.state.pmr,
             wc: this.state.wc,
             resto: this.state.resto,
-            eglise: this.state.eglise,
-            reset: this.resetAll.bind(this)
+            monu: this.state.monu,
+            reset: this.resetAll.bind(this),
+            search: this.search.bind(this)
           })}>
             <Image
               style={styles.imageMap}
@@ -178,7 +185,7 @@ export default class Home extends React.Component {
              </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.header} onPress={() => this._activeEglise()}>
+          <TouchableOpacity style={styles.header} onPress={() => this._activeMonu()}>
             <Image
               style={styles.image}
               source={require('../assets/icons/monument.png')}

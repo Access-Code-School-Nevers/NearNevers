@@ -155,7 +155,7 @@ export default class Home extends React.Component {
              </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.h  eader} onPress={() => this._activeWc()}>
+          <TouchableOpacity style={styles.header} onPress={() => this._activeWc()}>
             <Image
               style={styles.image}
               source={require('../assets/icons/toilettes.png')}

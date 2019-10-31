@@ -225,7 +225,7 @@ export default class Map extends React.Component {
 
           </MapView>
           <ActionButton style={styles.containerButtonFloat} buttonColor="#5d328f">
-            <ActionButton.Item buttonColor='#00aacd' title="Parking PMR" onPress={() => this._activePmr()}>
+            <ActionButton.Item buttonColor='#00aacd' title="Parking PMR" onPress={() =>{}}>
             <Icon name="md-notifications-off" style={styles.actionButtonIcon} />
             </ActionButton.Item>
             <ActionButton.Item buttonColor='#ef5a27' title="Toilettes" onPress={() => {}}>
